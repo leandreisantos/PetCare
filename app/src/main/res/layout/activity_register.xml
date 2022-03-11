@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/tv_back_r"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/back_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/lbl_r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_back_r"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_email_r"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        app:layout_constraintTop_toBottomOf="@id/lbl_r"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="10dp"
+        android:drawableStart="@drawable/email_icon"
+        android:drawablePadding="10dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/et_pass_r"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        app:layout_constraintTop_toBottomOf="@id/et_email_r"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="10dp"
+        android:drawableStart="@drawable/password_icon"
+        android:drawablePadding="10dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/et_confpass_r"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        app:layout_constraintTop_toBottomOf="@id/et_pass_r"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="10dp"
+        android:drawableStart="@drawable/password_icon"
+        android:drawablePadding="10dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:layout_marginTop="10dp"/>
+
+    <ProgressBar
+        android:id="@+id/pv_login"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:visibility="gone"
+        android:indeterminateTint="@color/pink1"
+        app:layout_constraintTop_toBottomOf="@id/et_pass_r"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    <CheckBox
+        android:id="@+id/cb_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Password"
+
+        app:layout_constraintTop_toBottomOf="@id/et_confpass_r"
+        app:layout_constraintLeft_toLeftOf="@id/et_confpass_r"/>
+
+    <TextView
+        android:id="@+id/tv_register_r"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/cb_pass"
+        app:layout_constraintRight_toRightOf="@id/et_email_r"
+        android:background="@drawable/custom_btn_bg"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:gravity="center"/>
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
