@@ -3,12 +3,20 @@ package com.example.petcare;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String currentuid = user.getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,4 +41,21 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,selected).commit();
         return true;
     };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        DocumentReference reference1;
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+        reference1 = firestore.collection("user").document(currentuid);
+        reference1.get()
+                .addOnCompleteListener(task -> {
+                    if(!task.getResult().exists()){
+                        Intent intent = new Intent(MainActivity.this, CreateProfileActivity.class);
+                        startActivity(intent);
+                    }
+                });
+    }
 }

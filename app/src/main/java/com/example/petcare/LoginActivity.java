@@ -74,4 +74,8 @@ public class LoginActivity extends AppCompatActivity {
         registerholder.setEnabled(x);
         loginholder.setEnabled(x);
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }
