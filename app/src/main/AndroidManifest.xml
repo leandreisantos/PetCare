@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
         <activity
+            android:name=".CreateNewPetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllPetActivity"
+            android:exported="false" />
+        <activity
             android:name=".CustomerCreateProfile"
             android:exported="false" />
         <activity
