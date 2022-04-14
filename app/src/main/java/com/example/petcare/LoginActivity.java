@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         registerholder.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+            Intent intent = new Intent(LoginActivity.this,OptionSignUpActivity.class);
             startActivity(intent);
         });
     }
