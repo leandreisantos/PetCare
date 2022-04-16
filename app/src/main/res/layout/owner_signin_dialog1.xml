@@ -59,16 +59,41 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_iv"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    app:cardCornerRadius="75dp">
+
+                    <TextView
+                        android:id="@+id/tv_icon"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/addpicture_icon"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"/>
+
+                </androidx.cardview.widget.CardView>
+
                 <EditText
                     android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/custom_input"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cv_iv"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:hint="Business Name"
                     android:padding="10dp"
+                    android:layout_marginTop="20dp"
                     android:drawableEnd="@drawable/ic_businessicon"
                     android:textColorHint="@color/grey"
                     android:textColor="@color/black"/>

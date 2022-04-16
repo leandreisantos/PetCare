@@ -1,29 +1,59 @@
 package com.example.petcare;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class OptionSignUpActivity extends AppCompatActivity {
 
     CardView owner,bussiness;
     TextView back;
+    private static final int PICK_IMAGE=1;
+    ImageView iv;
+    TextView iconpic;
+    Uri imageUridp;
+    StorageReference storageReference;
+    UploadTask uploadTask;
+    String currentUserId;
 
     String bussnameholder,emailholder,passholder,confpassholder; // dialog 1
     String statusposition; // dialog 2
@@ -38,11 +68,32 @@ public class OptionSignUpActivity extends AppCompatActivity {
     int satclick = 0;
     int hour,minute;
     String houropen,hourclose;
+    FirebaseAuth mAuth=FirebaseAuth.getInstance();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+    databaseReference dbr = new databaseReference();
+    FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
+    DatabaseReference databaseReference,databaseReference2,databaseReference3;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    DocumentReference documentReference;
+
+    AllOwnerUserMember ownerMember;
+    AllUserMember member;
+    AllBranchMember branchMember;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_option_sign_up);
+
+        ownerMember = new AllOwnerUserMember();
+        member = new AllUserMember();
+        branchMember = new AllBranchMember();
+
+        storageReference = FirebaseStorage.getInstance().getReference("Profile images");
+        databaseReference = database.getReference("All users");
+        databaseReference2 = database.getReference("All Business users");
 
         owner = findViewById(R.id.et_email_login);
         bussiness = findViewById(R.id.et_pass_login);
@@ -63,6 +114,9 @@ public class OptionSignUpActivity extends AppCompatActivity {
         EditText email = view.findViewById(R.id.et_email);
         EditText pass = view.findViewById(R.id.et_pass);
         EditText confpass = view.findViewById(R.id.et_confpass);
+        CardView cv_i = view.findViewById(R.id.cv_iv);
+        iv = view.findViewById(R.id.iv);
+        iconpic = view.findViewById(R.id.tv_icon);
 
         CardView next = view.findViewById(R.id.cv3);
 
@@ -70,6 +124,13 @@ public class OptionSignUpActivity extends AppCompatActivity {
                 .setView(view)
                 .create();
         alertDialog.show();
+
+        cv_i.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseImage();
+            }
+        });
 
         next.setOnClickListener(v -> {
             String tempname = namebuss.getText().toString();
@@ -83,8 +144,25 @@ public class OptionSignUpActivity extends AppCompatActivity {
                     emailholder = tempemail;
                     passholder = temppass;
                     confpassholder = tempconfpass;
-                    showdialog2();
-                    alertDialog.dismiss();
+                    mAuth.createUserWithEmailAndPassword(emailholder,passholder).addOnCompleteListener(task -> {
+                        if(task.isSuccessful()){
+                            currentUserId = user.getUid();
+                            mAuth.signInWithEmailAndPassword(emailholder,passholder).addOnCompleteListener(task2 -> {
+                                if(task2.isSuccessful()){
+                                    documentReference = db.collection("user").document(currentUserId);
+                                    databaseReference3 = database.getReference("All Branch").child(currentUserId);
+                                    showdialog2();
+                                    alertDialog.dismiss();
+                                }else{
+                                    String error = Objects.requireNonNull(task2.getException()).getMessage();
+                                    Toast.makeText(OptionSignUpActivity.this, "Error:"+error, Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }else{
+                            String error = Objects.requireNonNull(task.getException()).getMessage();
+                            Toast.makeText(OptionSignUpActivity.this, "Error:"+error, Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }else{
                     Toast.makeText(OptionSignUpActivity.this, "Password not match", Toast.LENGTH_SHORT).show();
                 }
@@ -94,6 +172,32 @@ public class OptionSignUpActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,PICK_IMAGE);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            if(requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData()!=null){
+                imageUridp = data.getData();
+                iconpic.setVisibility(View.GONE);
+                Picasso.get().load(imageUridp).into(iv);
+            }
+
+        }catch (Exception e){
+            Toast.makeText(this, "Error"+e, Toast.LENGTH_SHORT).show();
+        }
+    }
+    private String getFileExt(Uri uri){
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType((contentResolver.getType(uri)));
     }
 
     private void showdialog2() {
@@ -217,6 +321,7 @@ public class OptionSignUpActivity extends AppCompatActivity {
         TextView bname = view.findViewById(R.id.bname);
         TextView open = view.findViewById(R.id.et_open);
         TextView close = view.findViewById(R.id.et_close);
+        ProgressBar pb = view.findViewById(R.id.pb);
 
 
         bname.setText(branch);
@@ -334,18 +439,79 @@ public class OptionSignUpActivity extends AppCompatActivity {
             }
         });
 
-
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(sunclick == 0 &&monclick == 0&&tueclick==0&&wedclick==0&&thuclick==0&&friclick==0&&satclick==0){
+                    Toast.makeText(OptionSignUpActivity.this, "Please select day", Toast.LENGTH_SHORT).show();
+                }else{
+                    String tempopen = open.getText().toString();
+                    String tempclose = close.getText().toString();
+                    if(!TextUtils.isEmpty(tempopen)&&!TextUtils.isEmpty(tempclose)){
+                        pb.setVisibility(View.VISIBLE);
+                        final StorageReference reference = storageReference.child(System.currentTimeMillis()+"."+getFileExt(imageUridp));
+                        uploadTask = reference.putFile(imageUridp);
+                        Task<Uri> urlTask = uploadTask.continueWithTask((Task<UploadTask.TaskSnapshot> task3) -> {
+                            if(!task3.isSuccessful()){
+                                throw task3.getException();
+                            }
+                            return reference.getDownloadUrl();
+                        }).addOnCompleteListener(task3 -> {
+                            Uri downloadUri = task3.getResult();
 
+                            Map<String, String> profile = new HashMap<>();
+                            profile.put("name",bussnameholder);
+                            profile.put("mobile",mobileholder);
+                            profile.put("url",downloadUri.toString());
+                            profile.put("landline",landlineholder);
+                            profile.put("email",emailholder);
+                            profile.put("web",webholder);
+                            profile.put("uid",currentUserId);
+                            profile.put("status","Bussiness");
 
+                            Calendar cdate = Calendar.getInstance();
+                            SimpleDateFormat currentdate = new SimpleDateFormat("dd-MMMM-yyy");
+                            final String savedate = currentdate.format(cdate.getTime());
 
+                            Calendar ctime = Calendar.getInstance();
+                            SimpleDateFormat currenttime =new SimpleDateFormat("HH-mm");
+                            final String savetime = currenttime.format(ctime.getTime());
 
+                            ownerMember.setUrl(downloadUri.toString());
+                            ownerMember.setName(bussnameholder);
+                            ownerMember.setMobile(mobileholder);
+                            ownerMember.setLandline(landlineholder);
+                            ownerMember.setEmail(emailholder);
+                            ownerMember.setWebsite(webholder);
+                            ownerMember.setIduser(currentUserId);
+                            ownerMember.setStatus("Business");
+                            ownerMember.setStatusshop(statusposition);
+                            ownerMember.setDate(savedate);
+                            ownerMember.setTime(savetime);
+                            ownerMember.setPass(passholder);
 
-//                showdialog5();
-//                alertDialog.dismiss();
+                            member.setUserid(currentUserId);
+
+                            databaseReference2.child(currentUserId).setValue(ownerMember);
+                            databaseReference.child(currentUserId).setValue(member);
+
+                            documentReference.set(profile)
+                                    .addOnSuccessListener(aVoid -> {
+                                        Toast.makeText(OptionSignUpActivity.this, "Profile Created", Toast.LENGTH_SHORT).show();
+
+                                        Handler handler = new Handler();
+                                        handler.postDelayed(() -> {
+                                            Intent intent = new Intent(OptionSignUpActivity.this,MainActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        },2000);
+                                    });
+                        });
+
+                    }else{
+                        Toast.makeText(OptionSignUpActivity.this, "Please fill up all requirements", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }
@@ -360,4 +526,5 @@ public class OptionSignUpActivity extends AppCompatActivity {
         alertDialog.show();
 
     }
+
 }
