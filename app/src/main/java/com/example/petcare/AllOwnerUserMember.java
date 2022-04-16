@@ -14,6 +14,7 @@ public class AllOwnerUserMember {
     String statusshop;
     String date;
     String time;
+    String pass;
 
     public String getUrl() {
         return url;
@@ -109,5 +110,12 @@ public class AllOwnerUserMember {
 
     public void setTime(String time) {
         this.time = time;
+    }
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 }

@@ -78,17 +78,20 @@
                     app:layout_constraintLeft_toLeftOf="parent">
 
                     <RadioButton
+                        android:id="@+id/vet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/grey"
                         android:text="Veterinary Clinic"/>
                     <RadioButton
+                        android:id="@+id/groom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/grey"
                         android:layout_marginTop="10dp"
                         android:text="Pet Grooming Salon"/>
                     <RadioButton
+                        android:id="@+id/both"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/grey"
