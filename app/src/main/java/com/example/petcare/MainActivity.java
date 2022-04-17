@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -26,7 +27,29 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(onNav);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new homeFragment()).commit();
+        DocumentReference reference;
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+        reference = firestore.collection("user").document(currentuid);
+
+        reference.get()
+                .addOnCompleteListener(task -> {
+                    if(task.getResult().exists()){
+
+                        String statusResult = task.getResult().getString("status");
+
+                        if(statusResult.equals("Bussiness")){
+                            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new BusinessHomeFragment()).commit();
+                        }
+
+                    }else{
+                        Intent intent = new Intent(MainActivity.this,CreateProfileActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+
+//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new homeFragment()).commit();
     }
     private BottomNavigationView.OnNavigationItemSelectedListener onNav = item -> {
         Fragment selected = null;
@@ -46,16 +69,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        DocumentReference reference1;
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
-        reference1 = firestore.collection("user").document(currentuid);
-        reference1.get()
-                .addOnCompleteListener(task -> {
-                    if(!task.getResult().exists()){
-                        Intent intent = new Intent(MainActivity.this, CreateProfileActivity.class);
-                        startActivity(intent);
-                    }
-                });
+//        DocumentReference reference1;
+//        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+//
+//        reference1 = firestore.collection("user").document(currentuid);
+//        reference1.get()
+//                .addOnCompleteListener(task -> {
+//                    if(!task.getResult().exists()){
+//                        Intent intent = new Intent(MainActivity.this, CreateProfileActivity.class);
+//                        startActivity(intent);
+//                    }
+//                });
     }
 }

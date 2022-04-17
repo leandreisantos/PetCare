@@ -53,7 +53,7 @@ public class OptionSignUpActivity extends AppCompatActivity {
     Uri imageUridp;
     StorageReference storageReference;
     UploadTask uploadTask;
-    String currentUserId;
+
 
     String bussnameholder,emailholder,passholder,confpassholder; // dialog 1
     String statusposition; // dialog 2
@@ -69,7 +69,7 @@ public class OptionSignUpActivity extends AppCompatActivity {
     int hour,minute;
     String houropen,hourclose;
     FirebaseAuth mAuth=FirebaseAuth.getInstance();
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
     databaseReference dbr = new databaseReference();
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
@@ -146,18 +146,8 @@ public class OptionSignUpActivity extends AppCompatActivity {
                     confpassholder = tempconfpass;
                     mAuth.createUserWithEmailAndPassword(emailholder,passholder).addOnCompleteListener(task -> {
                         if(task.isSuccessful()){
-                            currentUserId = user.getUid();
-                            mAuth.signInWithEmailAndPassword(emailholder,passholder).addOnCompleteListener(task2 -> {
-                                if(task2.isSuccessful()){
-                                    documentReference = db.collection("user").document(currentUserId);
-                                    databaseReference3 = database.getReference("All Branch").child(currentUserId);
-                                    showdialog2();
-                                    alertDialog.dismiss();
-                                }else{
-                                    String error = Objects.requireNonNull(task2.getException()).getMessage();
-                                    Toast.makeText(OptionSignUpActivity.this, "Error:"+error, Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                            showdialog2();
+                            alertDialog.dismiss();
                         }else{
                             String error = Objects.requireNonNull(task.getException()).getMessage();
                             Toast.makeText(OptionSignUpActivity.this, "Error:"+error, Toast.LENGTH_SHORT).show();
@@ -448,65 +438,112 @@ public class OptionSignUpActivity extends AppCompatActivity {
                     String tempopen = open.getText().toString();
                     String tempclose = close.getText().toString();
                     if(!TextUtils.isEmpty(tempopen)&&!TextUtils.isEmpty(tempclose)){
-                        pb.setVisibility(View.VISIBLE);
-                        final StorageReference reference = storageReference.child(System.currentTimeMillis()+"."+getFileExt(imageUridp));
-                        uploadTask = reference.putFile(imageUridp);
-                        Task<Uri> urlTask = uploadTask.continueWithTask((Task<UploadTask.TaskSnapshot> task3) -> {
-                            if(!task3.isSuccessful()){
-                                throw task3.getException();
+                        mAuth.signInWithEmailAndPassword(emailholder,passholder).addOnCompleteListener(task2 -> {
+                            if(task2.isSuccessful()){
+                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                String currentUserId = user.getUid();
+                                documentReference = db.collection("user").document(currentUserId);
+                                databaseReference3 = database.getReference("All Branch").child(currentUserId);
+
+                                pb.setVisibility(View.VISIBLE);
+                                final StorageReference reference = storageReference.child(System.currentTimeMillis()+"."+getFileExt(imageUridp));
+                                uploadTask = reference.putFile(imageUridp);
+                                Task<Uri> urlTask = uploadTask.continueWithTask((Task<UploadTask.TaskSnapshot> task3) -> {
+                                    if(!task3.isSuccessful()){
+                                        throw task3.getException();
+                                    }
+                                    return reference.getDownloadUrl();
+                                }).addOnCompleteListener(task3 -> {
+                                    Uri downloadUri = task3.getResult();
+
+                                    Map<String, String> profile = new HashMap<>();
+                                    profile.put("name",bussnameholder);
+                                    profile.put("mobile",mobileholder);
+                                    profile.put("url",downloadUri.toString());
+                                    profile.put("landline",landlineholder);
+                                    profile.put("email",emailholder);
+                                    profile.put("web",webholder);
+                                    profile.put("uid",currentUserId);
+                                    profile.put("status","Bussiness");
+
+                                    Calendar cdate = Calendar.getInstance();
+                                    SimpleDateFormat currentdate = new SimpleDateFormat("dd-MMMM-yyy");
+                                    final String savedate = currentdate.format(cdate.getTime());
+
+                                    Calendar ctime = Calendar.getInstance();
+                                    SimpleDateFormat currenttime =new SimpleDateFormat("HH-mm");
+                                    final String savetime = currenttime.format(ctime.getTime());
+
+                                    String id1 = databaseReference3.push().getKey();
+
+                                    ownerMember.setUrl(downloadUri.toString());
+                                    ownerMember.setName(bussnameholder);
+                                    ownerMember.setMobile(mobileholder);
+                                    ownerMember.setLandline(landlineholder);
+                                    ownerMember.setEmail(emailholder);
+                                    ownerMember.setWebsite(webholder);
+                                    ownerMember.setIduser(currentUserId);
+                                    ownerMember.setStatus("Business");
+                                    ownerMember.setStatusshop(statusposition);
+                                    ownerMember.setDate(savedate);
+                                    ownerMember.setTime(savetime);
+                                    ownerMember.setPass(passholder);
+
+                                    member.setUserid(currentUserId);
+
+                                    branchMember.setId(id1);
+                                    branchMember.setIdowner(currentUserId);
+                                    branchMember.setName(bussnameholder);
+                                    branchMember.setLocation(branch);
+                                    branchMember.setBusinessName(bussnameholder);
+                                    if(sunclick == 1) branchMember.setSun("true");
+                                    else branchMember.setSun("false");
+
+                                    if(monclick == 1) branchMember.setMon("true");
+                                    else branchMember.setMon("false");
+
+                                    if(tueclick == 1) branchMember.setTues("true");
+                                    else branchMember.setTues("false");
+
+                                    if(wedclick == 1) branchMember.setWed("true");
+                                    else branchMember.setWed("false");
+
+                                    if(thuclick == 1) branchMember.setThu("true");
+                                    else branchMember.setThu("false");
+
+                                    if(friclick == 1) branchMember.setFri("true");
+                                    else branchMember.setFri("false");
+
+                                    if(satclick == 1) branchMember.setSat("true");
+                                    else branchMember.setSat("false");
+
+                                    branchMember.setOpentime(houropen);
+                                    branchMember.setClosetime(hourclose);
+
+                                    databaseReference2.child(currentUserId).setValue(ownerMember);
+                                    databaseReference.child(currentUserId).setValue(member);
+                                    databaseReference3.child(id1).setValue(branchMember);
+
+                                    documentReference.set(profile)
+                                            .addOnSuccessListener(aVoid -> {
+                                                Toast.makeText(OptionSignUpActivity.this, "Profile Created", Toast.LENGTH_SHORT).show();
+
+                                                Handler handler = new Handler();
+                                                handler.postDelayed(() -> {
+                                                    mAuth.signOut();
+                                                    Intent intent = new Intent(OptionSignUpActivity.this,LoginActivity.class);
+                                                    startActivity(intent);
+                                                    finish();
+                                                },2000);
+                                            });
+                                });
+
+                            }else{
+                                String error = Objects.requireNonNull(task2.getException()).getMessage();
+                                Toast.makeText(OptionSignUpActivity.this, "Error:"+error, Toast.LENGTH_SHORT).show();
                             }
-                            return reference.getDownloadUrl();
-                        }).addOnCompleteListener(task3 -> {
-                            Uri downloadUri = task3.getResult();
-
-                            Map<String, String> profile = new HashMap<>();
-                            profile.put("name",bussnameholder);
-                            profile.put("mobile",mobileholder);
-                            profile.put("url",downloadUri.toString());
-                            profile.put("landline",landlineholder);
-                            profile.put("email",emailholder);
-                            profile.put("web",webholder);
-                            profile.put("uid",currentUserId);
-                            profile.put("status","Bussiness");
-
-                            Calendar cdate = Calendar.getInstance();
-                            SimpleDateFormat currentdate = new SimpleDateFormat("dd-MMMM-yyy");
-                            final String savedate = currentdate.format(cdate.getTime());
-
-                            Calendar ctime = Calendar.getInstance();
-                            SimpleDateFormat currenttime =new SimpleDateFormat("HH-mm");
-                            final String savetime = currenttime.format(ctime.getTime());
-
-                            ownerMember.setUrl(downloadUri.toString());
-                            ownerMember.setName(bussnameholder);
-                            ownerMember.setMobile(mobileholder);
-                            ownerMember.setLandline(landlineholder);
-                            ownerMember.setEmail(emailholder);
-                            ownerMember.setWebsite(webholder);
-                            ownerMember.setIduser(currentUserId);
-                            ownerMember.setStatus("Business");
-                            ownerMember.setStatusshop(statusposition);
-                            ownerMember.setDate(savedate);
-                            ownerMember.setTime(savetime);
-                            ownerMember.setPass(passholder);
-
-                            member.setUserid(currentUserId);
-
-                            databaseReference2.child(currentUserId).setValue(ownerMember);
-                            databaseReference.child(currentUserId).setValue(member);
-
-                            documentReference.set(profile)
-                                    .addOnSuccessListener(aVoid -> {
-                                        Toast.makeText(OptionSignUpActivity.this, "Profile Created", Toast.LENGTH_SHORT).show();
-
-                                        Handler handler = new Handler();
-                                        handler.postDelayed(() -> {
-                                            Intent intent = new Intent(OptionSignUpActivity.this,MainActivity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        },2000);
-                                    });
                         });
+
 
                     }else{
                         Toast.makeText(OptionSignUpActivity.this, "Please fill up all requirements", Toast.LENGTH_SHORT).show();

@@ -15,6 +15,7 @@ public class AllBranchMember {
     String fri;
     String opentime;
     String closetime;
+    String sat;
 
     public AllBranchMember(){
 
@@ -122,6 +123,13 @@ public class AllBranchMember {
 
     public void setClosetime(String closetime) {
         this.closetime = closetime;
+    }
+    public String getSat() {
+        return sat;
+    }
+
+    public void setSat(String sat) {
+        this.sat = sat;
     }
 
 }
