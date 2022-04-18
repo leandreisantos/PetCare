@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
         <activity
+            android:name=".BusinessMessageActivty"
+            android:exported="false" />
+        <activity
             android:name=".OptionSignUpActivity"
             android:exported="false" />
         <activity

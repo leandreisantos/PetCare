@@ -9,7 +9,7 @@
 
 
     <item android:title="Favorites"
-        android:icon="@drawable/motor_icon"
+        android:icon="@drawable/ic_iconshop"
         app:showAsAction="always"
         android:id="@+id/fav_botoom"/>
 
@@ -17,7 +17,7 @@
     <item android:title="Appointment"
         android:icon="@drawable/calendar_icon"
         app:showAsAction="always"
-        android:id="@+id/notification_bottom"/>
+        android:id="@+id/calendar_bottom"/>
 
     <item android:title="Profile"
         android:icon="@drawable/person_icon"
