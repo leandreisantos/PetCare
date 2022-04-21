@@ -15,6 +15,7 @@
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_notif"
         android:layout_width="20dp"
         android:layout_height="20dp"
         app:cardBackgroundColor="@color/green2"
@@ -40,6 +41,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_message"
         android:layout_width="20dp"
         android:layout_height="20dp"
         app:cardBackgroundColor="@color/green2"

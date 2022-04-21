@@ -11,6 +11,7 @@
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable/ic_iconshop.xml" value="0.159" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable/next_icon.xml" value="0.132" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable/notifi_icon.xml" value="0.159" />
+        <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_add_walkin_client.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_all_pet.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_business_message_activty.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_business_notification.xml" value="0.14402173913043478" />
@@ -21,12 +22,14 @@
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_grooming.xml" value="0.25" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_main.xml" value="0.12318840579710146" />
+        <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_message.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_option_sign_up.xml" value="0.2" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_owner_create_profile.xml" value="0.18" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/activity_show_pet.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/business_calendar_fragment.xml" value="0.16" />
-        <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/business_home_fragment.xml" value="0.2" />
+        <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/business_home_fragment.xml" value="0.18" />
+        <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/business_shop_fragment.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/customer_signin_dialog.xml" value="0.25" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/home_fragment_layout.xml" value="0.15" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/layout/logout_layout.xml" value="0.12318840579710146" />

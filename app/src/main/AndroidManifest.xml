@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
         <activity
+            android:name=".MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddWalkinClientActivity"
+            android:exported="false" />
+        <activity
             android:name=".BusinessNotificationActivity"
             android:exported="false" />
         <activity

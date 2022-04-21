@@ -78,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
                                 case R.id.calendar_bottom:
                                     selected = new BusinessCalendarFragment();
                                     break;
+                                case R.id.fav_botoom:
+                                    selected = new BusinessShopFragment();
+                                    break;
                             }
                             getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,selected).commit();
                         }
