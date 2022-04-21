@@ -17,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
         <activity
+            android:name=".BusinessNotificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GroomingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BusinessRegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".BusinessMessageActivty"
             android:exported="false" />
         <activity

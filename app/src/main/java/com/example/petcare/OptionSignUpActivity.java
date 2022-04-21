@@ -37,6 +37,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.net.InetSocketAddress;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -99,8 +100,18 @@ public class OptionSignUpActivity extends AppCompatActivity {
         bussiness = findViewById(R.id.et_pass_login);
         back = findViewById(R.id.tv_back);
 
-        owner.setOnClickListener(v -> showdialogowner());
-        bussiness.setOnClickListener(v -> showdialogBuss());
+
+        owner.setOnClickListener((View v) -> {
+            Intent intent = new Intent(OptionSignUpActivity.this,CustomerCreateProfile.class);
+            startActivity(intent);
+        });
+        bussiness.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OptionSignUpActivity.this,BusinessRegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         back.setOnClickListener(v -> onBackPressed());
 
@@ -557,10 +568,25 @@ public class OptionSignUpActivity extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(this);
         View view = inflater.inflate(R.layout.customer_signin_dialog,null);
 
+
+        CardView next = view.findViewById(R.id.cv_next);
+        TextView back = view.findViewById(R.id.tv_back);
+
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setView(view)
                 .create();
         alertDialog.show();
+
+
+        back.setOnClickListener(v -> alertDialog.dismiss());
+
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(OptionSignUpActivity.this, "click next", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

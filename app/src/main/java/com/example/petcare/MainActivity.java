@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
                         if(statusResult.equals("Bussiness")){
                             getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new BusinessHomeFragment()).commit();
+                        }else{
+                            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new homeFragment()).commit();
                         }
 
                     }else{
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-//        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new homeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new homeFragment()).commit();
     }
     private BottomNavigationView.OnNavigationItemSelectedListener onNav = item -> {
 
@@ -92,16 +94,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-//        DocumentReference reference1;
-//        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-//
-//        reference1 = firestore.collection("user").document(currentuid);
-//        reference1.get()
-//                .addOnCompleteListener(task -> {
-//                    if(!task.getResult().exists()){
-//                        Intent intent = new Intent(MainActivity.this, CreateProfileActivity.class);
-//                        startActivity(intent);
-//                    }
-//                });
+        DocumentReference reference1;
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+        reference1 = firestore.collection("user").document(currentuid);
+        reference1.get()
+                .addOnCompleteListener(task -> {
+                    if(!task.getResult().exists()){
+                        Intent intent = new Intent(MainActivity.this, OptionSignUpActivity.class);
+                        startActivity(intent);
+                    }
+                });
     }
 }

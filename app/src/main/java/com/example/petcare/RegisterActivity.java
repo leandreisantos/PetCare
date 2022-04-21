@@ -44,16 +44,18 @@ public class RegisterActivity extends AppCompatActivity {
 
         submit.setOnClickListener(view -> registeruser());
 
-
-        if(cb.isChecked()){
-            confpassholder.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-            passholder.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        }else{
-            confpassholder.setInputType(129);
-            passholder.setInputType(129);
-        }
-
-
+        cb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cb.isChecked()){
+                    confpassholder.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    passholder.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }else{
+                    confpassholder.setInputType(129);
+                    passholder.setInputType(129);
+                }
+            }
+        });
     }
 
     private void registeruser() {

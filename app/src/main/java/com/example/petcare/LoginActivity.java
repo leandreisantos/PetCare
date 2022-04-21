@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -19,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
     TextView loginholder,registerholder;
     EditText emailholder,passholder;
+    CheckBox checkpass;
 
     FirebaseAuth mAuth=FirebaseAuth.getInstance();
     ProgressBar pbholder;
@@ -33,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         emailholder = findViewById(R.id.et_email_login);
         passholder = findViewById(R.id.et_pass_login);
         pbholder = findViewById(R.id.pv_login);
+        checkpass = findViewById(R.id.cb_pass);
 
 
         loginholder.setOnClickListener(view -> {
@@ -40,9 +44,22 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         registerholder.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this,OptionSignUpActivity.class);
+            Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
             startActivity(intent);
         });
+
+        checkpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkpass.isChecked()){
+                    passholder.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }else{
+                    passholder.setInputType(129);
+                }
+            }
+        });
+
+
     }
 
     private void loginuser() {
@@ -77,5 +94,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
     }
 }

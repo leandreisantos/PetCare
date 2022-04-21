@@ -92,7 +92,7 @@
         app:layout_constraintRight_toRightOf="@id/iv_pic_login"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:drawableStart="@drawable/email_icon"
+        android:drawableStart="@drawable/ic_emailicon"
         android:drawablePadding="10dp"
         android:padding="10dp"/>
 
@@ -107,6 +107,7 @@
         android:hint="Password"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
+        android:drawableTint="@color/pink1"
         android:drawableStart="@drawable/password_icon"
         android:drawablePadding="10dp"
         android:padding="10dp"/>

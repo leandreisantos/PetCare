@@ -14,33 +14,57 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <TextView
-            android:id="@+id/tv_setting_hf"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/setting_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+
 
         <TextView
-            android:id="@+id/tv_message_hf"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/message_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            android:id="@+id/tv_email"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/email_icon"
+            android:backgroundTint="@color/white"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:cardBackgroundColor="@color/green2"
+            app:layout_constraintTop_toTopOf="@id/tv_email"
+            app:layout_constraintRight_toRightOf="@id/tv_email"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:gravity="center"
+                android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/tv_cart_hf"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/cart_icon"
+            android:id="@+id/tv_notifi"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/notifi_icon"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/tv_message_hf"
-            android:layout_marginEnd="5dp"/>
+            app:layout_constraintRight_toLeftOf="@id/tv_email"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:cardBackgroundColor="@color/green2"
+            app:layout_constraintTop_toTopOf="@id/tv_notifi"
+            app:layout_constraintRight_toRightOf="@id/tv_notifi"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:gravity="center"
+                android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -48,7 +72,7 @@
         android:id="@+id/lbl_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HOME"
+        android:text="PETCARE"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -56,20 +80,25 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
+
     <EditText
+        android:visibility="gone"
         android:id="@+id/et_search"
         android:layout_width="350dp"
         android:layout_height="50dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/custom_input"
-        app:layout_constraintTop_toBottomOf="@id/lbl_home"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/search_icon"
+        android:drawablePadding="10dp"
         android:hint="Search for stores and services"
         android:padding="10dp"
         android:textColorHint="@color/grey"
-        android:drawableStart="@drawable/search_icon"
-        android:drawablePadding="10dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbl_home" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -101,6 +130,7 @@
             app:cardCornerRadius="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/grooming"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/pink1">
