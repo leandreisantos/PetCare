@@ -1,5 +1,6 @@
 package com.example.petcare;
 
+import android.app.Application;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ public class AllServicesHolder extends RecyclerView.ViewHolder{
 
     TextView titleholder,descholder;
     CardView viewall;
+
 
     public AllServicesHolder(@NonNull View itemView) {
         super(itemView);
@@ -27,6 +29,17 @@ public class AllServicesHolder extends RecyclerView.ViewHolder{
 
         titleholder.setText(services);
         descholder.setText(desc);
+
+
+    }
+
+    public void setService(Application application, String id, String ownerId, String services, String desc, String min, String capacity,
+                           String amount, String date, String time, String timeslotid){
+
+        titleholder = itemView.findViewById(R.id.tv_title);
+
+
+        titleholder.setText(services);
 
 
     }

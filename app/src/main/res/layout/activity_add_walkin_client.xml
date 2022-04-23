@@ -53,7 +53,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cl1">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    app:cardCornerRadius="65dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:id="@+id/cv_iv">
+
+
+                    <TextView
+                        android:id="@+id/icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/addpicture_icon"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:id="@+id/iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"/>
+
+
+
+
+                </androidx.cardview.widget.CardView>
+
 
 
                 <EditText
@@ -62,9 +94,10 @@
                     android:layout_height="50dp"
                     android:background="@drawable/custom_input"
                     android:hint="Full Name"
+                    android:layout_marginTop="20dp"
                     android:padding="10dp"
                     android:textColor="@color/black"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cv_iv"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"/>
 
@@ -96,6 +129,7 @@
                         android:background="@drawable/custom_input"
                         android:hint="Weight"
                         android:padding="10dp"
+                        android:inputType="number"
                         android:textColor="@color/black"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/et_age"
@@ -131,6 +165,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"/>
 
                 <RadioGroup
+                    android:id="@+id/rdgroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/tv_rd"
@@ -154,8 +189,132 @@
 
                 </RadioGroup>
 
+                <TextView
+                    android:id="@+id/tv_services"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Choose Services"
+                    android:textColor="@color/green2"
+                    app:layout_constraintTop_toBottomOf="@id/rdgroup"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_serv"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="4dp"
+                    app:cardBackgroundColor="@color/green2"
+                    app:cardElevation="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_services">
+
+
+                    <TextView
+                        android:id="@+id/servtext"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Services" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estimated Session Time"
+                    android:textColor="@color/green2"
+                    app:layout_constraintTop_toBottomOf="@id/cv_serv"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <TextView
+                    android:id="@+id/minutes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 minutes"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_time"/>
+
+
+                <TextView
+                    android:id="@+id/tv_slot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Available Time Slots"
+                    android:textColor="@color/green2"
+                    app:layout_constraintTop_toBottomOf="@id/minutes"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <androidx.cardview.widget.CardView
+                    android:visibility="gone"
+                    app:cardElevation="10dp"
+                    android:id="@+id/cv_slot"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="4dp"
+                    app:cardBackgroundColor="@color/green2"
+                    app:layout_constraintTop_toBottomOf="@id/tv_slot">
+
+
+                    <TextView
+                        android:id="@+id/tv_time2"
+                        android:textColor="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Time slot" />
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:visibility="gone"
+                android:id="@+id/cv_done"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintTop_toBottomOf="@id/cl2"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/green2">
+
+                <TextView
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Done"
+                    android:layout_gravity="center"/>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/pb"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 
