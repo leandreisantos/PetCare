@@ -83,12 +83,19 @@
             android:layout_height="50dp"
             android:background="@drawable/custom_input"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_send"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background=""
+            android:id="@+id/tv_send"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/send_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintLeft_toRightOf="@id/et_message"/>
 
 
 

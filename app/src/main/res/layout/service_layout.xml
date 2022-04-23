@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_consultation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:padding="10dp"
+        android:text="Consultation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_Vaccination"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:padding="10dp"
+        android:text="Vaccination"
+        app:layout_constraintTop_toBottomOf="@id/tv_consultation"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_fullGroom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:padding="10dp"
+        android:text="Full Grooom"
+        app:layout_constraintTop_toBottomOf="@id/tv_Vaccination"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_nailTriming"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:padding="10dp"
+        android:text="Nail Trimming"
+        app:layout_constraintTop_toBottomOf="@id/tv_fullGroom"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_eye"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:padding="10dp"
+        android:text="Eye and Ear Clean"
+        app:layout_constraintTop_toBottomOf="@id/tv_nailTriming"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_bathing"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:padding="10dp"
+        android:text="Bathing"
+        app:layout_constraintTop_toBottomOf="@id/tv_eye"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_teeth"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:padding="10dp"
+        android:text="Teeth Brushing"
+        app:layout_constraintTop_toBottomOf="@id/tv_bathing"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_anal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        android:padding="10dp"
+        android:text="Anal Gland Expression"
+        app:layout_constraintTop_toBottomOf="@id/tv_teeth"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:gravity="center"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
