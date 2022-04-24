@@ -159,7 +159,7 @@ public class AddWalkinClientActivity extends AppCompatActivity {
         String tempage = ageholder.getText().toString();
 
         if(checktime == true && checkservices==true && !TextUtils.isEmpty(tempname)&&!TextUtils.isEmpty(temppetname)&&!TextUtils.isEmpty(tempweight)&&
-                !TextUtils.isEmpty(tempage)&&!TextUtils.isEmpty(health)){
+                !TextUtils.isEmpty(tempage)&&!TextUtils.isEmpty(health)&&imageUridp!=null){
 
             pb.setVisibility(View.VISIBLE);
 

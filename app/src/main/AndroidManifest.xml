@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
         <activity
+            android:name=".RequestAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShowProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddServicesActivity"
             android:exported="false" />
         <activity

@@ -11,6 +11,7 @@
     <color name="pink1">#eda2b2</color>
     <color name="pink2">#edafbd</color>
     <color name="pink3">#fde3e9</color>
+    <color name="pink4">#ED3372</color>
 
     <color name="grey">#AAA4AA</color>
 
@@ -19,6 +20,7 @@
     <color name="green">#005c5c</color>
     <color name="green2">#4AB2AF</color>
     <color name="green3">#5DB3A8</color>
+    <color name="green4">#D5EBE8</color>
     <color name="red">#FF5C58</color>
 
 </resources>

@@ -12,12 +12,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class BusinessHomeFragment extends Fragment {
 
     CardView notif,message,add_walk;
-    TextView search;
+    TextView search,dateholder;
+    RecyclerView recyclerView;
 
+    databaseReference dbr = new databaseReference();
+    FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
+    DatabaseReference databaseReference;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String currentUserId = user.getUid();
 
     @Nullable
     @Override
@@ -29,10 +48,18 @@ public class BusinessHomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
+        databaseReference = database.getReference("All walkin").child(currentUserId);
+
         notif = getActivity().findViewById(R.id.cv_notif);
         message = getActivity().findViewById(R.id.cv_message);
         search = getActivity().findViewById(R.id.tv_search);
         add_walk = getActivity().findViewById(R.id.cv_add_walk);
+        dateholder = getActivity().findViewById(R.id.datenow);
+
+        recyclerView = getActivity().findViewById(R.id.rv);
+        recyclerView.setHasFixedSize(false);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         notif.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(),BusinessNotificationActivity.class);
@@ -57,6 +84,58 @@ public class BusinessHomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Calendar cdate = Calendar.getInstance();
+        SimpleDateFormat currentdate = new SimpleDateFormat("dd-MMMM-yyy");
+        final String savedate = currentdate.format(cdate.getTime());
+
+
+        dateholder.setText(savedate);
+
+        FirebaseRecyclerOptions<AllWalkinMember> options =
+                new FirebaseRecyclerOptions.Builder<AllWalkinMember>()
+                        .setQuery(databaseReference,AllWalkinMember.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<AllWalkinMember, Walkinholder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<AllWalkinMember, Walkinholder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull Walkinholder holder, int position, @NonNull AllWalkinMember model) {
+
+
+                        holder.setwalkin(getActivity(),model.getId(),model.getIdowner(),model.getName(),model.getPetname(),model.getWeight(),model.getAge(),
+                                model.getHealth(),model.getServices(),model.getMinutes(),model.getTime(),model.getDate(),model.getUrl(),model.getStart(),model.getEnd());
+
+
+
+
+
+                    }
+
+                    @NonNull
+                    @Override
+                    public Walkinholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+                        View view = LayoutInflater.from(parent.getContext())
+                                .inflate(R.layout.walkinsched_item,parent,false);
+
+                        return new Walkinholder(view);
+                    }
+                };
+
+        firebaseRecyclerAdapter.startListening();
+
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+
+
 
 
 

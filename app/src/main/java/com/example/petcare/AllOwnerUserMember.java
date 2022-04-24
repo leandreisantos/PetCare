@@ -1,6 +1,6 @@
 package com.example.petcare;
 
-public class AllOwnerUserMember {
+public class    AllOwnerUserMember {
 
     String url;
     String name;

@@ -298,6 +298,7 @@ public class BusinessRegisterActivity extends AppCompatActivity {
                     ownerMember.setLandline(templandline);
                     ownerMember.setEmail("");
                     ownerMember.setWebsite(tempweb);
+                    ownerMember.setAdd(tempbranchadd);
                     ownerMember.setIduser(currentUserId);
                     ownerMember.setStatus("Business");
                     ownerMember.setStatusshop(statuposition);
