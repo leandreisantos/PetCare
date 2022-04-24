@@ -286,7 +286,7 @@ public class AddServicesActivity extends AppCompatActivity {
             servmember.setDesc(tempdesc);
             servmember.setMin(tempmin);
             servmember.setCapacity(String.valueOf(capacity));
-            servmember.setAmount(String.valueOf(amount));
+            servmember.setAmount(tempamount);
             servmember.setTime(savetime);
             servmember.setDate(savedate);
             servmember.setTimeslotid(id1);

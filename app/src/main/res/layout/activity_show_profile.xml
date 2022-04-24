@@ -191,6 +191,7 @@
             android:background="@drawable/custom_input"/>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_req"
             android:layout_width="120dp"
             android:layout_height="50dp"
             app:cardCornerRadius="10dp"

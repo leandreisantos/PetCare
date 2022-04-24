@@ -11,19 +11,33 @@
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_business_register.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_customer_create_profile.xml" value="0.25" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_grooming.xml" value="0.33" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_login.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_main.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_message.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_option_sign_up.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_request_appointment.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_show_pet.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_show_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/activity_splash_screen.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/business_calendar_fragment.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/business_home_fragment.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/customer_signin_dialog.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/home_fragment_layout.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/logout_layout.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/owner_signin_dialog1.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/petfragment_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/sample.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/serv_item.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/serv_layout.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/service_appointment_item.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/service_layout.xml" value="0.371875" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/shopoption_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/shopservice_item.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/shopservices_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/shopstimeslot_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/timeitem_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/timeitemwalkin_layout.xml" value="0.25" />
+        <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/timeslot_layout.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/vet_item.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/walkinsched_item.xml" value="0.22" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable-v24/custom_input.xml" value="0.1" />

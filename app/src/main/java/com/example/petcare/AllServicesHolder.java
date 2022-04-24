@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,8 @@ public class AllServicesHolder extends RecyclerView.ViewHolder{
     CardView viewall,bg;
 
     TextView iconholder;
+    CheckBox cb;
+    TextView priceholder;
 
 
     public AllServicesHolder(@NonNull View itemView) {
@@ -77,7 +80,42 @@ public class AllServicesHolder extends RecyclerView.ViewHolder{
         }
 
 
+    }
+
+    public void setServiceAppointment(Application application, String id, String ownerId, String services, String desc, String min, String capacity,
+                                  String amount, String date, String time, String timeslotid){
+
+        cb = itemView.findViewById(R.id.cb);
+        titleholder = itemView.findViewById(R.id.name);
+        priceholder = itemView.findViewById(R.id.price);
+        iconholder = itemView.findViewById(R.id.icon);
+        bg = itemView.findViewById(R.id.cv);
+
+
+        titleholder.setText(services);
+        priceholder.setText(amount);
+
+        if(services.equals("Consultation")){
+            iconholder.setBackgroundResource(R.drawable.ic_consul_icon);
+            bg.setBackgroundColor(Color.parseColor("#4AB2AF"));
+        }else if(services.equals("Vaccination")){
+            iconholder.setBackgroundResource(R.drawable.ic_vaccine_icon);
+            bg.setBackgroundColor(Color.parseColor("#4AB2AF"));
+        }else if(services.equals("Nail Trimming")){
+            iconholder.setBackgroundResource(R.drawable.ic_nailtrim_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }else if(services.equals("Eye and Ear Clean")){
+            iconholder.setBackgroundResource(R.drawable.ic_nailtrim_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }
+        else{
+            iconholder.setBackgroundResource(R.drawable.ic_vaccine_icon);
+        }
+
+
 
 
     }
+
+
 }

@@ -2,10 +2,12 @@ package com.example.petcare;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +33,7 @@ public class ShowProfileActivity extends AppCompatActivity {
     TextView nameholder,addholder,backholder;
     ImageView iv;
     RecyclerView recyclerView;
+    CardView req;
 
     String id_post;
 
@@ -61,12 +64,14 @@ public class ShowProfileActivity extends AppCompatActivity {
         nameholder = findViewById(R.id.tv_name);
         addholder = findViewById(R.id.tv_add);
         backholder = findViewById(R.id.tv_back);
+        req = findViewById(R.id.cv_req);
         iv = findViewById(R.id.iv);
         recyclerView = findViewById(R.id.rv);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         backholder.setOnClickListener(view -> onBackPressed());
+
 
 
     }
@@ -80,10 +85,23 @@ public class ShowProfileActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String name = snapshot.child("name").getValue(String.class);
                 String url = snapshot.child("url").getValue(String.class);
+                String id = snapshot.child("iduser").getValue(String.class);
+
+
 
 
                 Picasso.get().load(url).into(iv);
                 nameholder.setText(name);
+
+
+                req.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(ShowProfileActivity.this,RequestAppointmentActivity.class);
+                        intent.putExtra("id",id);
+                        startActivity(intent);
+                    }
+                });
 
             }
 

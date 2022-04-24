@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                                     selected = new BusinessCalendarFragment();
                                     break;
                                 case R.id.fav_botoom:
-                                    selected = new BusinessShopFragment();
+                                    selected = new PetFragment();
                                     break;
                             }
                             getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,selected).commit();
