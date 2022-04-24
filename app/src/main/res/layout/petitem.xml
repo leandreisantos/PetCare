@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@color/pink3"
+    android:layout_margin="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edit_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_margin="10dp">
+
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/doglogo"
+                android:layout_gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/pet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pet Name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="@id/cv"
+            app:layout_constraintTop_toTopOf="@id/cv"
+            app:layout_constraintBottom_toTopOf="@id/pet_breed"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/pet_breed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Breed"
+            android:textColor="@color/grey"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="@id/cv"
+            app:layout_constraintTop_toBottomOf="@id/pet_name"
+            app:layout_constraintBottom_toBottomOf="@id/cv"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            app:layout_constraintTop_toBottomOf="@id/cv"
+            app:layout_constraintLeft_toLeftOf="@id/cv"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight"
+            app:layout_constraintTop_toBottomOf="@id/tv_age"
+            app:layout_constraintLeft_toLeftOf="@id/cv"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            app:layout_constraintTop_toBottomOf="@id/tv_weight"
+            app:layout_constraintLeft_toLeftOf="@id/cv"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"/>
+
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health Status"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@id/tv_gender"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

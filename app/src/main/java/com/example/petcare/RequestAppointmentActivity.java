@@ -2,6 +2,7 @@ package com.example.petcare;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +33,7 @@ public class RequestAppointmentActivity extends AppCompatActivity {
     String id_post;
 
     RecyclerView recyclerView;
+    CardView next;
 
     databaseReference dbr = new databaseReference();
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
@@ -57,9 +59,16 @@ public class RequestAppointmentActivity extends AppCompatActivity {
 
 
         nameholder = findViewById(R.id.tV_nambussiness);
+        next = findViewById(R.id.cv_next);
         recyclerView = findViewById(R.id.rv);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        next.setOnClickListener(view -> {
+            Intent intent = new Intent(RequestAppointmentActivity.this,AppoinmentPetActivity.class);
+            startActivity(intent);
+        });
 
     }
 
@@ -91,8 +100,6 @@ public class RequestAppointmentActivity extends AppCompatActivity {
 
                         holder.setServiceAppointment(getApplication(),model.getId(),model.getOwenerid(),model.getServices(),model.getDesc(),
                                 model.getMin(),model.getCapacity(),model.getAmount(),model.getDate(),model.getTime(),model.getTimeslotid());
-
-
 
 
 

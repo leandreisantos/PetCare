@@ -17,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
         <activity
+            android:name=".DateAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AppoinmentPetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddPetActivity"
+            android:exported="false" />
+        <activity
             android:name=".RequestAppointmentActivity"
             android:exported="false" />
         <activity
