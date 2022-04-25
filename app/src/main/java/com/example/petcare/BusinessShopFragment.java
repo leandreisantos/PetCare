@@ -76,8 +76,6 @@ public class BusinessShopFragment extends Fragment {
                         
                         
                         holder.viewall.setOnClickListener(v -> {
-                            Toast.makeText(getActivity(), "clikjc", Toast.LENGTH_SHORT).show();
-
 
                         });
 

@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                                     selected = new BusinessHomeFragment();
                                     break;
                                 case R.id.profile_bottom:
-                                    selected = new ProfileFragment();
+                                    selected = new ProfileUserFragment();
                                     break;
                                 case R.id.calendar_bottom:
                                     selected = new BusinessCalendarFragment();
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                                     selected = new homeFragment();
                                     break;
                                 case R.id.profile_bottom:
-                                    selected = new ProfileFragment();
+                                    selected = new ProfileUserFragment();
                                     break;
                                 case R.id.calendar_bottom:
                                     selected = new BusinessCalendarFragment();

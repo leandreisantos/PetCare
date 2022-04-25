@@ -26,9 +26,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class RequestAppointmentActivity extends AppCompatActivity {
 
-    TextView nameholder;
+    TextView nameholder,totalholder;
 
     String id_post;
 
@@ -37,15 +40,22 @@ public class RequestAppointmentActivity extends AppCompatActivity {
 
     databaseReference dbr = new databaseReference();
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
-    DatabaseReference databaseReference,databaseReference2;
+    DatabaseReference databaseReference,databaseReference2,databaseReference3;
 
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String currentUserId = user.getUid();
 
+    ArrayList<String> mylist = new ArrayList<String>();
+
+    AllservicesSelectedMember member;
+
+    int subtotal=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_appointment);
+
+        member = new AllservicesSelectedMember();
 
         Bundle extras = getIntent().getExtras();
         if (extras != null){
@@ -56,18 +66,38 @@ public class RequestAppointmentActivity extends AppCompatActivity {
 
         databaseReference= database.getReference("All Business users").child(id_post);
         databaseReference2= database.getReference("All services").child(id_post);
+        databaseReference3= database.getReference("All selected services").child(currentUserId);
 
 
         nameholder = findViewById(R.id.tV_nambussiness);
         next = findViewById(R.id.cv_next);
+        totalholder = findViewById(R.id.total);
         recyclerView = findViewById(R.id.rv);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
         next.setOnClickListener(view -> {
-            Intent intent = new Intent(RequestAppointmentActivity.this,AppoinmentPetActivity.class);
-            startActivity(intent);
+
+            if(!mylist.isEmpty()){
+
+                String id1 = databaseReference3.push().getKey();
+
+
+                for(int i=0;i<mylist.size();i++){
+//                    Toast.makeText(this, mylist.get(i), Toast.LENGTH_SHORT).show();
+                    member.setId(mylist.get(i));
+                    databaseReference3.child(id1).child(mylist.get(i)).setValue(member);
+                }
+
+                Intent intent = new Intent(RequestAppointmentActivity.this,AppoinmentPetActivity.class);
+                intent.putExtra("owner",id_post);
+                intent.putExtra("idservices",id1);
+                intent.putExtra("subtotal",String.valueOf(subtotal));
+                startActivity(intent);
+            }else{
+                Toast.makeText(this, "Select services", Toast.LENGTH_SHORT).show();
+            }
         });
 
     }
@@ -101,9 +131,27 @@ public class RequestAppointmentActivity extends AppCompatActivity {
                         holder.setServiceAppointment(getApplication(),model.getId(),model.getOwenerid(),model.getServices(),model.getDesc(),
                                 model.getMin(),model.getCapacity(),model.getAmount(),model.getDate(),model.getTime(),model.getTimeslotid());
 
+                        String  id = getItem(position).getId();
+                        String  amount = getItem(position).getAmount();
 
+                        holder.cb.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
 
+                                if(holder.cb.isChecked()){
+                                    mylist.add(id);
+                                    subtotal+=Integer.parseInt(amount);
+                                    totalholder.setText("Subtotal:"+subtotal);
+                                }else{
+                                    mylist.remove(id);
+                                    subtotal-=Integer.parseInt(amount);
+                                    totalholder.setText("Subtotal:"+subtotal);
+                                }
 
+//                                mylist.add(id);
+//                                Toast.makeText(RequestAppointmentActivity.this, Arrays.toString(mylist.toArray()), Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
                     }
 

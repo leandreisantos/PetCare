@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_background"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_notifi"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/notifi_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_notif"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:cardBackgroundColor="@color/green2"
+        app:layout_constraintTop_toTopOf="@id/tv_notifi"
+        app:layout_constraintRight_toRightOf="@id/tv_notifi"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/email_icon"
+        android:backgroundTint="@color/white"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_message"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:cardBackgroundColor="@color/green2"
+        app:layout_constraintTop_toTopOf="@id/tv_email"
+        app:layout_constraintRight_toRightOf="@id/tv_email"
+        app:cardCornerRadius="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_search"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/search_icon"
+        android:backgroundTint="@color/white"
+        app:layout_constraintRight_toLeftOf="@id/tv_email"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_search"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PETCARE"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:fontFamily="@font/baloo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_lbl"
+            android:layout_marginEnd="10dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toBottomOf="@id/cl1">
+
+
+        <TextView
+            android:id="@+id/lbl_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="SETTINGS"
+            android:drawableStart="@drawable/setting_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TableRow
+            android:id="@+id/tb1"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            app:layout_constraintTop_toBottomOf="@id/lbl_settings"/>
+
+
+        <TextView
+            android:id="@+id/profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            app:layout_constraintTop_toBottomOf="@id/tb1"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb2"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/profile"/>
+
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Details"
+            app:layout_constraintTop_toBottomOf="@id/tb2"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb3"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/contact"/>
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            app:layout_constraintTop_toBottomOf="@id/tb3"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb4"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/password"/>
+
+        <TextView
+            android:id="@+id/lbl_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="ACCOUNT"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/help_icon"
+            app:layout_constraintTop_toBottomOf="@id/tb4"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TableRow
+            android:id="@+id/tb5"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/lbl_help"/>
+
+        <TextView
+            android:id="@+id/privacy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy"
+            app:layout_constraintTop_toBottomOf="@id/tb5"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb6"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/privacy"/>
+
+        <TextView
+            android:id="@+id/language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Languaage"
+            app:layout_constraintTop_toBottomOf="@id/tb6"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb7"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/language"/>
+
+        <TextView
+                android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            app:layout_constraintTop_toBottomOf="@id/tb7"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb8"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/logout"/>
+
+        <TextView
+            android:id="@+id/lbl_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="CONTACT US"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/contact_icon"
+            app:layout_constraintTop_toBottomOf="@id/tb8"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TableRow
+            android:id="@+id/tb9"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/lbl_contact"/>
+
+        <TextView
+            android:id="@+id/cont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CONTACT OUR SUPPORT"
+            app:layout_constraintTop_toBottomOf="@id/tb9"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb10"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/cont"/>
+
+        <TextView
+            android:id="@+id/faq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FAQs"
+            app:layout_constraintTop_toBottomOf="@id/tb10"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb11"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/faq"/>
+
+        <TextView
+            android:id="@+id/legal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LEGAL"
+            app:layout_constraintTop_toBottomOf="@id/tb11"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb12"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/legal"/>
+
+        <TextView
+            android:id="@+id/terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LEGAL"
+            app:layout_constraintTop_toBottomOf="@id/tb12"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="10dp"
+            android:drawableEnd="@drawable/next_icon"
+            android:drawableTint="@color/grey"/>
+
+        <TableRow
+            android:id="@+id/tb13"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/grey"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/terms"/>
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,6 +34,7 @@ public class ShowProfileActivity extends AppCompatActivity {
     ImageView iv;
     RecyclerView recyclerView;
     CardView req;
+    TextView message;
 
     String id_post;
 
@@ -64,6 +65,7 @@ public class ShowProfileActivity extends AppCompatActivity {
         nameholder = findViewById(R.id.tv_name);
         addholder = findViewById(R.id.tv_add);
         backholder = findViewById(R.id.tv_back);
+        message = findViewById(R.id.tv_message);
         req = findViewById(R.id.cv_req);
         iv = findViewById(R.id.iv);
         recyclerView = findViewById(R.id.rv);
@@ -71,6 +73,7 @@ public class ShowProfileActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         backholder.setOnClickListener(view -> onBackPressed());
+
 
 
 
@@ -99,6 +102,16 @@ public class ShowProfileActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         Intent intent = new Intent(ShowProfileActivity.this,RequestAppointmentActivity.class);
                         intent.putExtra("id",id);
+                        startActivity(intent);
+                    }
+                });
+
+                message.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(ShowProfileActivity.this,MessageActivity.class);
+                        intent.putExtra("id",id);
+                        intent.putExtra("need","owner");
                         startActivity(intent);
                     }
                 });
