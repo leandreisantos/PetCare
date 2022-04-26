@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.EditText;
@@ -57,6 +59,8 @@ public class BusinessRegisterActivity extends AppCompatActivity {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String currentUserId = user.getUid();
 
+    FirebaseAuth mAuth;
+
     int sunclick = 0;
     int monclick = 0;
     int tueclick = 0;
@@ -95,6 +99,8 @@ public class BusinessRegisterActivity extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference("Profile images");
         databaseReference = database.getReference("All users");
         databaseReference2 = database.getReference("All Business users");
+
+        mAuth = FirebaseAuth.getInstance();
 
 
 
@@ -383,5 +389,23 @@ public class BusinessRegisterActivity extends AppCompatActivity {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType((contentResolver.getType(uri)));
+    }
+
+    @Override
+    public void onBackPressed() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.logout_layout,null);
+        TextView logout_tv = view.findViewById(R.id.logout_tv_ll);
+        TextView cancel_tv = view.findViewById(R.id.cancel_tv_ll);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .create();
+        alertDialog.show();
+        logout_tv.setOnClickListener(v -> {
+            mAuth.signOut();
+            startActivity(new Intent(this,LoginActivity.class));
+        });
+        cancel_tv.setOnClickListener(v -> alertDialog.dismiss());
     }
 }

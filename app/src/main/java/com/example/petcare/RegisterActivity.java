@@ -1,5 +1,6 @@
 package com.example.petcare;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
@@ -67,12 +70,23 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill up all requirements!", Toast.LENGTH_SHORT).show();
         }else{
             if(pass.equals(conf)){
+                pbholder.setVisibility(View.VISIBLE);
                 mAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(task -> {
                     if(task.isSuccessful()){
-                        Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                        startActivity(intent);
-                        Toast.makeText(RegisterActivity.this,"Successfully created your account enjoy!", Toast.LENGTH_SHORT).show();
-                        pbholder.setVisibility(View.INVISIBLE);
+                        mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(RegisterActivity.this,"Registered successfully.Please check your email for verification", Toast.LENGTH_SHORT).show();
+                                    pbholder.setVisibility(View.INVISIBLE);
+                                    emailholder.setText("");
+                                    passholder.setText("");
+                                    confpassholder.setText("");
+                                }else{
+                                    Toast.makeText(RegisterActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                     }else{
                         process(false);
                         String error = Objects.requireNonNull(task.getException()).getMessage();

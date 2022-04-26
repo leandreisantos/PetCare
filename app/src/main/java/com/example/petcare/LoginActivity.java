@@ -1,5 +1,6 @@
 package com.example.petcare;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,13 +14,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
-    TextView loginholder,registerholder;
+    TextView loginholder,registerholder,forgotpass;
     EditText emailholder,passholder;
     CheckBox checkpass;
 
@@ -37,25 +40,36 @@ public class LoginActivity extends AppCompatActivity {
         passholder = findViewById(R.id.et_pass_login);
         pbholder = findViewById(R.id.pv_login);
         checkpass = findViewById(R.id.cb_pass);
+        forgotpass = findViewById(R.id.tv_forgot);
 
-
-        loginholder.setOnClickListener(view -> {
-            loginuser();
+        forgotpass.setOnClickListener(v -> {
+            String email = emailholder.getText().toString();
+            if(!TextUtils.isEmpty(email)){
+                mAuth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        Toast.makeText(LoginActivity.this, "Email sent!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(LoginActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }else{
+                Toast.makeText(LoginActivity.this, "Input Email to forgot password verify", Toast.LENGTH_SHORT).show();
+            }
         });
+
+
+        loginholder.setOnClickListener(view -> loginuser());
 
         registerholder.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
             startActivity(intent);
         });
 
-        checkpass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(checkpass.isChecked()){
-                    passholder.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                }else{
-                    passholder.setInputType(129);
-                }
+        checkpass.setOnClickListener(v -> {
+            if(checkpass.isChecked()){
+                passholder.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            }else{
+                passholder.setInputType(129);
             }
         });
 
@@ -72,9 +86,15 @@ public class LoginActivity extends AppCompatActivity {
 
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if(mAuth.getCurrentUser().isEmailVerified()){
+                        Intent intent = new Intent(LoginActivity.this, OptionSignUpActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else{
+                        pbholder.setVisibility(View.GONE);
+                        Toast.makeText(LoginActivity.this, "Please verify your email address", Toast.LENGTH_SHORT).show();
+                        enabledElement(true);
+                    }
                 }else{
                     pbholder.setVisibility(View.GONE);
                     String error = Objects.requireNonNull(task.getException()).getMessage();

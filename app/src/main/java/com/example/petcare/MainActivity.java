@@ -45,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     }else{
-                        Intent intent = new Intent(MainActivity.this,CreateProfileActivity.class);
-                        startActivity(intent);
+
                     }
                 });
 
@@ -102,8 +101,6 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     }else{
-                        Intent intent = new Intent(MainActivity.this,CreateProfileActivity.class);
-                        startActivity(intent);
                     }
                 });
         return true;
@@ -113,16 +110,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        DocumentReference reference1;
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        if(user != null&&user.isEmailVerified()){
+            DocumentReference reference1;
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        reference1 = firestore.collection("user").document(currentuid);
-        reference1.get()
-                .addOnCompleteListener(task -> {
-                    if(!task.getResult().exists()){
-                        Intent intent = new Intent(MainActivity.this, OptionSignUpActivity.class);
-                        startActivity(intent);
-                    }
-                });
+            reference1 = firestore.collection("user").document(currentuid);
+            reference1.get()
+                    .addOnCompleteListener(task -> {
+                        if(!task.getResult().exists()){
+                            Intent intent = new Intent(MainActivity.this, OptionSignUpActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+        }else{
+            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+        }
+
     }
 }

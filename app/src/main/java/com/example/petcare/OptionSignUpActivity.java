@@ -590,4 +590,23 @@ public class OptionSignUpActivity extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public void onBackPressed() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.logout_layout,null);
+        TextView logout_tv = view.findViewById(R.id.logout_tv_ll);
+        TextView cancel_tv = view.findViewById(R.id.cancel_tv_ll);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .create();
+        alertDialog.show();
+        logout_tv.setOnClickListener(v -> {
+            mAuth.signOut();
+            startActivity(new Intent(this,LoginActivity.class));
+        });
+        cancel_tv.setOnClickListener(v -> alertDialog.dismiss());
+    }
+    
 }

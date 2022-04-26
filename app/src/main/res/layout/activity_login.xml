@@ -121,6 +121,7 @@
         app:layout_constraintLeft_toLeftOf="@id/et_pass_login"/>
 
     <TextView
+        android:id="@+id/tv_forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password?"
