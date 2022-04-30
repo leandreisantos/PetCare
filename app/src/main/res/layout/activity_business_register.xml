@@ -241,6 +241,7 @@
                     android:textSize="20sp"/>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -338,6 +339,7 @@
                 </LinearLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/cl3"
@@ -391,6 +393,317 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/cl3"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/cl_sun"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/cb_sun"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sunday"
+                            android:textColor="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/sun_open"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Opens at"
+                            android:padding="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/sun_close"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Closes at"
+                            android:padding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toBottomOf="@id/sun_open"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/cl_mon"
+                        app:layout_constraintTop_toBottomOf="@id/cl_sun"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/cb_mon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Monday"
+                            android:textColor="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/mon_open"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Opens at"
+                            android:padding="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/mon_close"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Closes at"
+                            android:padding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toBottomOf="@id/mon_open"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/cl_tues"
+                        app:layout_constraintTop_toBottomOf="@id/cl_mon"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/cb_tues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tuesday"
+                            android:textColor="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/tues_open"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Opens at"
+                            android:padding="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/tues_close"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Closes at"
+                            android:padding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toBottomOf="@id/tues_open"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/cl_wed"
+                        app:layout_constraintTop_toBottomOf="@id/cl_tues"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/cb_wed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wednesday"
+                            android:textColor="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/wed_open"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Opens at"
+                            android:padding="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/wed_close"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Closes at"
+                            android:padding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toBottomOf="@id/wed_open"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/cl_thur"
+                        app:layout_constraintTop_toBottomOf="@id/cl_wed"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/cb_thur"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Thursday"
+                            android:textColor="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/thur_open"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Opens at"
+                            android:padding="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/thur_close"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Closes at"
+                            android:padding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toBottomOf="@id/thur_open"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/cl_fri"
+                        app:layout_constraintTop_toBottomOf="@id/cl_thur"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/cb_fri"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Friday"
+                            android:textColor="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/fri_open"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Opens at"
+                            android:padding="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/fri_close"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Closes at"
+                            android:padding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toBottomOf="@id/fri_open"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/cl_sat"
+                        app:layout_constraintTop_toBottomOf="@id/cl_fri"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/cb_sat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Saturday"
+                            android:textColor="@color/black"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/sat_open"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Opens at"
+                            android:padding="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/sat_close"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:text="Closes at"
+                            android:padding="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/custom_input"
+                            app:layout_constraintTop_toBottomOf="@id/sat_open"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

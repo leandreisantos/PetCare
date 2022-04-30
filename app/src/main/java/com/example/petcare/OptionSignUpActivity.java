@@ -528,8 +528,6 @@ public class OptionSignUpActivity extends AppCompatActivity {
                                     if(satclick == 1) branchMember.setSat("true");
                                     else branchMember.setSat("false");
 
-                                    branchMember.setOpentime(houropen);
-                                    branchMember.setClosetime(hourclose);
 
                                     databaseReference2.child(currentUserId).setValue(ownerMember);
                                     databaseReference.child(currentUserId).setValue(member);
@@ -608,5 +606,5 @@ public class OptionSignUpActivity extends AppCompatActivity {
         });
         cancel_tv.setOnClickListener(v -> alertDialog.dismiss());
     }
-    
+
 }
