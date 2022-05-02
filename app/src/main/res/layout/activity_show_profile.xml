@@ -145,14 +145,87 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"/>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tb"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/lbl_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textColor="@color/black"
+            android:drawableStart="@drawable/star_icon"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/lbl_rating"
+            app:layout_constraintLeft_toLeftOf="@id/lbl_rating"
+            app:layout_constraintRight_toRightOf="@id/lbl_rating"/>
+
+        <TextView
+            android:id="@+id/lbl_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/lbl_reviews"
+            app:layout_constraintLeft_toLeftOf="@id/lbl_reviews"
+            app:layout_constraintRight_toRightOf="@id/lbl_reviews"/>
+
+        <TextView
+            android:id="@+id/lbl_served"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Served Clients"
+            android:textSize="18sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="46"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/lbl_served"
+            app:layout_constraintLeft_toLeftOf="@id/lbl_served"
+            app:layout_constraintRight_toRightOf="@id/lbl_served"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/tv_serv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:text="Services"
-        app:layout_constraintTop_toBottomOf="@id/tb"
+        app:layout_constraintTop_toBottomOf="@id/cl_rating"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="10dp"/>
 

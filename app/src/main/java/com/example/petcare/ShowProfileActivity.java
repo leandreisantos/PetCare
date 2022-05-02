@@ -89,6 +89,7 @@ public class ShowProfileActivity extends AppCompatActivity {
                 String name = snapshot.child("name").getValue(String.class);
                 String url = snapshot.child("url").getValue(String.class);
                 String id = snapshot.child("iduser").getValue(String.class);
+                String branchid = snapshot.child("idbranch").getValue(String.class);
 
 
 
@@ -102,6 +103,7 @@ public class ShowProfileActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         Intent intent = new Intent(ShowProfileActivity.this,RequestAppointmentActivity.class);
                         intent.putExtra("id",id);
+                        intent.putExtra("idbranch",branchid);
                         startActivity(intent);
                     }
                 });

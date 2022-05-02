@@ -33,7 +33,7 @@ public class RequestAppointmentActivity extends AppCompatActivity {
 
     TextView nameholder,totalholder;
 
-    String id_post;
+    String id_post,branchidbundle;
 
     RecyclerView recyclerView;
     CardView next;
@@ -60,6 +60,7 @@ public class RequestAppointmentActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             id_post = extras.getString("id");
+            branchidbundle = extras.getString("idbranch");
         }else {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         }
@@ -94,6 +95,7 @@ public class RequestAppointmentActivity extends AppCompatActivity {
                 intent.putExtra("owner",id_post);
                 intent.putExtra("idservices",id1);
                 intent.putExtra("subtotal",String.valueOf(subtotal));
+                intent.putExtra("branchid",branchidbundle);
                 startActivity(intent);
             }else{
                 Toast.makeText(this, "Select services", Toast.LENGTH_SHORT).show();

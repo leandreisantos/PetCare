@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                                     selected = new ProfileUserFragment();
                                     break;
                                 case R.id.calendar_bottom:
-                                    selected = new BusinessCalendarFragment();
+                                    selected = new CustomerCalendar();
                                     break;
                                 case R.id.fav_botoom:
                                     selected = new PetFragment();

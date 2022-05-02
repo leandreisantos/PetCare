@@ -11,7 +11,7 @@ public class AllBranchMember {
     String mon;
     String tues;
     String wed;
-    String thu;
+    String thurs;
     String fri;
     String sat;
     String sunopen;
@@ -103,14 +103,6 @@ public class AllBranchMember {
 
     public void setWed(String wed) {
         this.wed = wed;
-    }
-
-    public String getThu() {
-        return thu;
-    }
-
-    public void setThu(String thu) {
-        this.thu = thu;
     }
 
     public String getFri() {
@@ -238,6 +230,13 @@ public class AllBranchMember {
 
     public void setSatclose(String satclose) {
         this.satclose = satclose;
+    }
+    public String getThurs() {
+        return thurs;
+    }
+
+    public void setThurs(String thurs) {
+        this.thurs = thurs;
     }
 
 }

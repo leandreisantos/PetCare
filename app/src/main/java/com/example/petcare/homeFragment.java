@@ -17,10 +17,10 @@ import androidx.fragment.app.Fragment;
 public class homeFragment extends Fragment
 {
 
-    ConstraintLayout groomingholder;
+    ConstraintLayout groomingholder,consulholder;
     FirebaseAuth mAuth;
 
-    CardView cvmessage;
+    CardView cvmessage,cvnotif;
 
     @Nullable
     @Override
@@ -33,19 +33,26 @@ public class homeFragment extends Fragment
         super.onActivityCreated(savedInstanceState);
 
         groomingholder = getActivity().findViewById(R.id.grooming);
+        consulholder = getActivity().findViewById(R.id.consul);
         cvmessage = getActivity().findViewById(R.id.cv_message);
+        cvnotif = getActivity().findViewById(R.id.cv_notif);
 
         groomingholder.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(),GroomingActivity.class);
             startActivity(intent);
         });
+        consulholder.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(),VetActivity.class);
+            startActivity(intent);
+        });
 
-        cvmessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),BusinessMessageActivty.class);
-                startActivity(intent);
-            }
+        cvmessage.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(),BusinessMessageActivty.class);
+            startActivity(intent);
+        });
+        cvnotif.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(),BusinessNotificationActivity.class);
+            startActivity(intent);
         });
     }
 }

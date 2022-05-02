@@ -591,6 +591,7 @@ public class BusinessRegisterActivity extends AppCompatActivity {
                         ownerMember.setDate(savedate);
                         ownerMember.setTime(savetime);
                         ownerMember.setPass("");
+                        ownerMember.setIdbranch(id1);
 
                         member.setUserid(currentUserId);
 
@@ -628,11 +629,11 @@ public class BusinessRegisterActivity extends AppCompatActivity {
                         else branchMember.setWed("false");
 
                         if(thuclick == 1) {
-                            branchMember.setThu("true");
+                            branchMember.setThurs("true");
                             branchMember.setThursopen(thurOpenHour);
                             branchMember.setThursclose(thurCloseHour);
                         }
-                        else branchMember.setThu("false");
+                        else branchMember.setThurs("false");
 
                         if(friclick == 1){
                             branchMember.setFri("true");

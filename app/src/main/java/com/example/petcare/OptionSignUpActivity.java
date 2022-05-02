@@ -519,8 +519,8 @@ public class OptionSignUpActivity extends AppCompatActivity {
                                     if(wedclick == 1) branchMember.setWed("true");
                                     else branchMember.setWed("false");
 
-                                    if(thuclick == 1) branchMember.setThu("true");
-                                    else branchMember.setThu("false");
+                                    if(thuclick == 1) branchMember.setThurs("true");
+                                    else branchMember.setThurs("false");
 
                                     if(friclick == 1) branchMember.setFri("true");
                                     else branchMember.setFri("false");

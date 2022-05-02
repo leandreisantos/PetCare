@@ -2,6 +2,7 @@ package com.example.petcare;
 
 import android.app.Application;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,9 @@ public class Timeholder extends  RecyclerView.ViewHolder{
     TextView time;
     TextView delete;
     ConstraintLayout timecons;
+
+    TextView openholder,closeholder;
+    CheckBox cb;
 
     public Timeholder(@NonNull View itemView) {
         super(itemView);
@@ -34,6 +38,18 @@ public class Timeholder extends  RecyclerView.ViewHolder{
 
 
         time.setText(open+" - "+close);
+    }
+
+    public void setTimeSlot(Application application,String id,String idowner,String name,String location,String businessName,
+                            String sun,String mon,String tues,String wed,String thu,String fri,String sat,String sunopen,
+                            String sunclose,String monopen,String monclose,String tuesopen,String tuesclose,String wedopen,
+                            String wedclose,String thursopen,String thursclose,String friopen,String friclose,String satopen,String satclose){
+
+
+        openholder = itemView.findViewById(R.id.name);
+        cb = itemView.findViewById(R.id.cb);
+
+
     }
 
 }

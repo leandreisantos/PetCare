@@ -5,8 +5,8 @@
         android:type="linear"
         android:angle="-270"
         android:startColor="@color/pink1"
-        android:centerColor="@color/pink3"
-        android:endColor="@color/pink1">
+        android:centerColor="@color/pink1"
+        android:endColor="@color/pink2">
     </gradient>
 
 </shape>

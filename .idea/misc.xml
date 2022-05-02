@@ -59,12 +59,34 @@
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/vet_item.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/viewservice_dialog.xml" value="0.371875" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/layout/walkinsched_item.xml" value="0.22" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable-v24/custom_btn_bg.xml" value="0.198" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable-v24/custom_input.xml" value="0.198" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/custom_btn_bg_terms.xml" value="0.198" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/gradient_background2.xml" value="0.16" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/gradient_background_pet.xml" value="0.16" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/more_icon.xml" value="0.16" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/star_icon.xml" value="0.16" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_business_register.xml" value="0.2" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_create_profile.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_date_appointment.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_grooming.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_register.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_show_profile.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_summary_appointment.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_terms_and_condition.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_vet.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/appointment_item.xml" value="0.22" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/business_calendar_fragment.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/customer_calendar_layout.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/home_fragment_layout.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/message_item_layout.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/more_appointment_dialog.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/shopstimeslot_layout.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/terms_condition_layout.xml" value="0.25" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/timeitem_layout.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/timeslot_appointment_item.xml" value="0.209375" />
+        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/walkinsched_item.xml" value="0.209375" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable-v24/custom_input.xml" value="0.1" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable/add_icon.xml" value="0.159" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable/addpicture_icon.xml" value="0.132" />

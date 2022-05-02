@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">PetCare</string>
+
+    <string name="term_of_use">
+        LICENSING AGREEMENT/TERMS AND CONDITIONS FOR PET CARE APP
+        Notice to User: Please read the following Licensing Agreement/
+        Terms and Conditions carefully because it will apply to your access to and use of this Application,
+        and constitute a legally binding agreement between you and Pet Care App. Clicking the Agree button
+        constitutes your acceptance to be bound by all the Terms and Conditions of this Agreement.
+        If you do not accept the terms of this Agreement, you will not be able to use the Application.
+        Please exit this setup if you choose not to accept all of the terms and conditions SECTION 17 OF
+        THIS AGREEMENT REQUIRES THAT DISPUTES BETWEEN YOU AND TEAM PET CARE BE RESOLVED INDIVIDUALLY IN ARBITRATION
+        DISPUTES IN ARBITRATION ARE RESOLVED WITHOUT A JUDGE OR JURY AND WITH LESS DISCOVERY AND LESS APPELLATE REVIEW THAN IN COURT.
+    </string>
+
+
 </resources>

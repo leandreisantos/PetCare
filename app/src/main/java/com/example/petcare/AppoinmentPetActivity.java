@@ -34,7 +34,7 @@ public class AppoinmentPetActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
     DatabaseReference databaseReference,databaseReference3;
 
-    String ownerbundle,serviceidbundle,subtotalbundle;
+    String ownerbundle,serviceidbundle,subtotalbundle,bundleidbranch;
     ArrayList<String> mylist = new ArrayList<String>();
 
     AllpetSelectedMember member;
@@ -51,6 +51,7 @@ public class AppoinmentPetActivity extends AppCompatActivity {
             ownerbundle = extras.getString("owner");
             serviceidbundle = extras.getString("idservices");
             subtotalbundle = extras.getString("subtotal");
+            bundleidbranch = extras.getString("branchid");
         }else {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         }
@@ -85,9 +86,10 @@ public class AppoinmentPetActivity extends AppCompatActivity {
                     intent.putExtra("idservices",serviceidbundle);
                     intent.putExtra("subtotal",subtotalbundle);
                     intent.putExtra("petid",id1);
+                    intent.putExtra("branchid",bundleidbranch);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(AppoinmentPetActivity.this, "Select services", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AppoinmentPetActivity.this, "Select pet", Toast.LENGTH_SHORT).show();
                 }
 
 

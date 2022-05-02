@@ -22,5 +22,7 @@
     <color name="green3">#5DB3A8</color>
     <color name="green4">#D5EBE8</color>
     <color name="red">#FF5C58</color>
+    <color name="yellow">#FFBC11</color>
+    <color name="appointcolor">#F0E3E6</color>
 
 </resources>
