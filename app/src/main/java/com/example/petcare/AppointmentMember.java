@@ -19,6 +19,10 @@ public class AppointmentMember {
     String month;
     String status;
 
+    public AppointmentMember(){
+
+    }
+
     public String getDate() {
         return date;
     }

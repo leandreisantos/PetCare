@@ -56,6 +56,7 @@ public class GroomingActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         FirebaseRecyclerOptions<AllOwnerUserMember> options =
                 new FirebaseRecyclerOptions.Builder<AllOwnerUserMember>()
                         .setQuery(databaseReference,AllOwnerUserMember.class)

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CalendarView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,6 +36,7 @@ public class DateAppointmentActivity extends AppCompatActivity {
     int dayIndex;
     String openTime,closeTime;
     String dayholder,monthholder,yearholder;
+    TextView timeavailable;
 
     databaseReference dbr = new databaseReference();
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
@@ -66,6 +68,7 @@ public class DateAppointmentActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv);
         next = findViewById(R.id.cv_next);
         cv = findViewById(R.id.cv_next);
+        timeavailable = findViewById(R.id.tv_time);
         calendar = findViewById(R.id.cview);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -101,6 +104,8 @@ public class DateAppointmentActivity extends AppCompatActivity {
                         String day = snapshot.child(days[dayIndex]).getValue(String.class);
                          openTime = snapshot.child(days[dayIndex]+"open").getValue(String.class);
                          closeTime = snapshot.child(days[dayIndex]+"close").getValue(String.class);
+
+                        timeavailable.setText(openTime+"-"+closeTime);
 
                         if(day.equals("true")){
                             Toast.makeText(DateAppointmentActivity.this, "selected day", Toast.LENGTH_SHORT).show();

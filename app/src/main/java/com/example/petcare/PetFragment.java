@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +32,8 @@ public class PetFragment extends Fragment {
     CardView addpet;
     boolean checkchoose = false;
     String status;
+
+    ConstraintLayout clmessage,clnotif;
 
     databaseReference dbr = new databaseReference();
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
@@ -61,17 +64,27 @@ public class PetFragment extends Fragment {
         petMember = new AllPetMember();
 
         addpet = getActivity().findViewById(R.id.cv_addpet);
+        clmessage = getActivity().findViewById(R.id.cl_message);
+        clnotif = getActivity().findViewById(R.id.cl_notif);
+
+        addpet = getActivity().findViewById(R.id.cv_addpet);
         recyclerView = getActivity().findViewById(R.id.rv);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-        addpet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showaddPet();
-            }
+        addpet.setOnClickListener(view -> showaddPet());
+
+        clmessage.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(),BusinessMessageActivty.class);
+            startActivity(intent);
         });
+        clnotif.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(),BusinessNotificationActivity.class);
+            startActivity(intent);
+        });
+
+
     }
 
     private void showaddPet() {
@@ -93,50 +106,41 @@ public class PetFragment extends Fragment {
         alertDialog.show();
 
 
-        health.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                status = "health";
-                checkchoose = true;
-            }
+        health.setOnClickListener(view1 -> {
+            status = "health";
+            checkchoose = true;
         });
-        unhealth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                status = "unhealthy";
-                checkchoose = true;
-            }
+        unhealth.setOnClickListener(view12 -> {
+            status = "unhealthy";
+            checkchoose = true;
         });
 
 
 
 
 
-        done.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String tempname = name.getText().toString();
-                String tempbreed = breed.getText().toString();
-                String tempweight = weight.getText().toString();
-                String tempage = age.getText().toString();
+        done.setOnClickListener(view13 -> {
+            String tempname = name.getText().toString();
+            String tempbreed = breed.getText().toString();
+            String tempweight = weight.getText().toString();
+            String tempage = age.getText().toString();
 
-                if(!TextUtils.isEmpty(tempname)&&!TextUtils.isEmpty(tempbreed)&&!TextUtils.isEmpty(tempweight)&&!TextUtils.isEmpty(tempage)&&checkchoose==true){
+            if(!TextUtils.isEmpty(tempname)&&!TextUtils.isEmpty(tempbreed)&&!TextUtils.isEmpty(tempweight)&&!TextUtils.isEmpty(tempage)&&checkchoose==true){
 
-                    String id1 = databaseReference.push().getKey();
-                    petMember.setPetname(tempname);
-                    petMember.setBreed(tempbreed);
-                    petMember.setWeight(tempweight);
-                    petMember.setAge(tempage);
-                    petMember.setStatus(status);
-                    petMember.setId(id1);
-                    petMember.setOwnerid(currentUserId);
+                String id1 = databaseReference.push().getKey();
+                petMember.setPetname(tempname);
+                petMember.setBreed(tempbreed);
+                petMember.setWeight(tempweight);
+                petMember.setAge(tempage);
+                petMember.setStatus(status);
+                petMember.setId(id1);
+                petMember.setOwnerid(currentUserId);
 
-                    databaseReference.child(id1).setValue(petMember);
-                    Toast.makeText(getActivity(), "Pet Added", Toast.LENGTH_SHORT).show();
-                    alertDialog.dismiss();
-                }else{
-                    Toast.makeText(getActivity(), "Please fill up all requirements", Toast.LENGTH_SHORT).show();
-                }
+                databaseReference.child(id1).setValue(petMember);
+                Toast.makeText(getActivity(), "Pet Added", Toast.LENGTH_SHORT).show();
+                alertDialog.dismiss();
+            }else{
+                Toast.makeText(getActivity(), "Please fill up all requirements", Toast.LENGTH_SHORT).show();
             }
         });
 

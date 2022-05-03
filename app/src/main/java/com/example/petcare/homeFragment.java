@@ -20,7 +20,7 @@ public class homeFragment extends Fragment
     ConstraintLayout groomingholder,consulholder;
     FirebaseAuth mAuth;
 
-    CardView cvmessage,cvnotif;
+    ConstraintLayout cvmessage,cvnotif;
 
     @Nullable
     @Override
@@ -34,8 +34,8 @@ public class homeFragment extends Fragment
 
         groomingholder = getActivity().findViewById(R.id.grooming);
         consulholder = getActivity().findViewById(R.id.consul);
-        cvmessage = getActivity().findViewById(R.id.cv_message);
-        cvnotif = getActivity().findViewById(R.id.cv_notif);
+        cvmessage = getActivity().findViewById(R.id.cl_message);
+        cvnotif = getActivity().findViewById(R.id.cl_notif);
 
         groomingholder.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(),GroomingActivity.class);

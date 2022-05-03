@@ -6,29 +6,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient_background">
 
-    <TextView
-        android:id="@+id/tv_notifi"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/notifi_icon"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        app:cardBackgroundColor="@color/green2"
-        app:layout_constraintTop_toTopOf="@id/tv_notifi"
-        app:layout_constraintRight_toRightOf="@id/tv_notifi"
-        app:cardCornerRadius="10dp">
-
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/clnotif">
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="0"
-            android:gravity="center"
-            android:textColor="@color/white"/>
-    </androidx.cardview.widget.CardView>
+            android:id="@+id/tv_notifi"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/notifi_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:cardBackgroundColor="@color/green2"
+            app:layout_constraintTop_toTopOf="@id/tv_notifi"
+            app:layout_constraintRight_toRightOf="@id/tv_notifi"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:gravity="center"
+                android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <TextView
         android:id="@+id/tv_email"
