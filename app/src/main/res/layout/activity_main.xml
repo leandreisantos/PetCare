@@ -8,23 +8,4 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/frame_layout"
-        android:layout_above="@id/bottom_nav">
-    </FrameLayout>
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:id="@+id/bottom_nav"
-        android:background="@color/white"
-        app:itemTextColor="@color/black"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_menu"/>
-
-
 </RelativeLayout>

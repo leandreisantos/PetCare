@@ -118,7 +118,8 @@
         android:layout_height="wrap_content"
         android:text="Business Name"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/cv"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
@@ -139,6 +140,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:background="@color/grey"
+        android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/tv_add"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -160,9 +162,10 @@
             android:layout_height="wrap_content"
             android:text="Rating"
             android:textSize="18sp"
+            android:layout_marginTop="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="50dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -181,6 +184,7 @@
             android:layout_height="wrap_content"
             android:text="Rating"
             android:textSize="18sp"
+            android:layout_marginTop="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -201,9 +205,10 @@
             android:layout_height="wrap_content"
             android:text="Served Clients"
             android:textSize="18sp"
+            android:layout_marginTop="10dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginEnd="10dp"/>
+            android:layout_marginEnd="20dp"/>
 
         <TextView
             android:layout_width="wrap_content"

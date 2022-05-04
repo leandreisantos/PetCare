@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
         <activity
+            android:name=".Main_Business_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".MainCustomerActivity"
+            android:exported="false" />
+        <activity
             android:name=".VetActivity"
             android:exported="false" />
         <activity

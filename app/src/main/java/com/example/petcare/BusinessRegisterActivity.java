@@ -82,7 +82,7 @@ public class BusinessRegisterActivity extends AppCompatActivity {
 
     databaseReference dbr = new databaseReference();
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
-    DatabaseReference databaseReference,databaseReference2,databaseReference3;
+    DatabaseReference databaseReference,databaseReference2,databaseReference3,databaseReference4;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     DocumentReference documentReference;
@@ -653,6 +653,21 @@ public class BusinessRegisterActivity extends AppCompatActivity {
                         databaseReference2.child(currentUserId).setValue(ownerMember);
                         databaseReference.child(currentUserId).setValue(member);
                         databaseReference3.child(id1).setValue(branchMember);
+
+                        if(statuposition.equals("vet")){
+                            databaseReference4 = database.getReference("All Business users vet");
+                            databaseReference4.child(currentUserId).setValue(ownerMember);
+                        }
+                        else if(statuposition.equals("groom")){
+                            databaseReference4 = database.getReference("All Business users groom");
+                            databaseReference4.child(currentUserId).setValue(ownerMember);
+                        }
+                        else if(statuposition.equals("both")){
+                            databaseReference4 = database.getReference("All Business users groom");
+                            databaseReference4.child(currentUserId).setValue(ownerMember);
+                            databaseReference4 = database.getReference("All Business users vet");
+                            databaseReference4.child(currentUserId).setValue(ownerMember);
+                        }
 
                         documentReference.set(profile)
                                 .addOnSuccessListener(aVoid -> {

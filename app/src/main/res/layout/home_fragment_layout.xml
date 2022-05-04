@@ -156,7 +156,7 @@
                 android:id="@+id/consul"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_background_pet">
+                android:background="@drawable/consul_bg">
 
 
                 <TextView
@@ -201,7 +201,7 @@
                 android:id="@+id/grooming"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/gradient_background2">
+                android:background="@drawable/groom_bg">
 
 
                 <TextView
