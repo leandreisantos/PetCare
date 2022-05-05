@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PetCare</string>
 
-    <string name="term_of_use">
+    <string name="term">
         LICENSING AGREEMENT/TERMS AND CONDITIONS FOR PET CARE APP
         Notice to User: Please read the following Licensing Agreement/
         Terms and Conditions carefully because it will apply to your access to and use of this Application,
@@ -11,6 +11,225 @@
         Please exit this setup if you choose not to accept all of the terms and conditions SECTION 17 OF
         THIS AGREEMENT REQUIRES THAT DISPUTES BETWEEN YOU AND TEAM PET CARE BE RESOLVED INDIVIDUALLY IN ARBITRATION
         DISPUTES IN ARBITRATION ARE RESOLVED WITHOUT A JUDGE OR JURY AND WITH LESS DISCOVERY AND LESS APPELLATE REVIEW THAN IN COURT.
+    </string>
+    <string name="description">
+        The Pet Care Mobile Application makes pet appointment scheduling easier for pet owners and pet care providers.
+        The application enables pet owners to connect with the best veterinarians and groomers in their area. Pet owners can register
+        multiple dogs and access a variety of services for their dogs. The application has a real-time dashboard for the appointment list
+        to give them the prescribed time of their appointment. It also has notification reminders with calendar integration to keep users
+        on track of their appointments.
+    </string>
+    <string name="conditions">
+        Pet Care App has the right to amend the Terms and modify or update the Services at any time in its sole discretion.
+        If we modify these Terms, we will post the updated Terms on our application page. These modifications shall take effect on the
+        revision date specified in the updated Terms. Acceptance of the modified Terms shall be deemed to occur upon your continued usage
+        of the Services. If you breach any of the Additional Terms, Pet Care App reserves the right, in its sole discretion, to suspend,
+        terminate, or modify your account or any aspect of your access to and use of the Services, in whole or in part. By continuing to use
+        the Services, you agree to the Additional Terms and any subsequent revisions or additions to the Additional Terms that may be published
+        through the Services from time to time. Please examine the Additional Terms on a regular basis to ensure that you are aware of any changes.
+    </string>
+    <string name="elgi">
+        By accessing and using Pet Care App, you declare that you are at least 18 years old or the age of majority in your jurisdiction, whichever is
+        higher, and that you will comply with all applicable laws and regulations regarding your activities on or via the Pet Care App Services.
+    </string>
+    <string name="scope">
+        The Services are limited to an online scheduling platform that links Pet Owners with Pet Care Providers. We make no representations or assurances
+        regarding the quality of dog grooming, check-ups, or other veterinary services offered by Pet Care Providers, or regarding your interactions and
+        dealings with Pet Care Providers or other users.
+    </string>
+    <string name="access">
+        The Pet Care App Service is made up of a mobile application and related support and services that enable pet owners ("Pet Owners") and suppliers of
+        pet healthcare services ("Service Providers") to connect and engage. The Pet Care App Service consists of our support services, educational materials
+        for Service Providers, and other services, all of which are facilitated via our built-in chat feature and include grooming and veterinary appointment
+        services, as well as other interactions between Pet Owners and Service Providers (collectively such appointment and interactions between Pet Owners and
+        Service Providers being the "Pet Care Services"). Service Providers and Pet Owners are not charged with any fees for use of the App.
+    </string>
+    <string name="registrations">
+        To use the Pet Care App, you will be asked to create a username, password, and user profile. You agree not to use another person\'s identity or to maintain
+        more than one account (or, if Pet Care App terminates your account, not to create further accounts). You are responsible for maintaining the
+        confidentiality of your Pet Care App Service login and password, and you agree not to permit anyone else to use them. You are personally liable for every
+        activity conducted via your account. You agree to notify us immediately if your account is used in an illegal manner.
+    </string>
+    <string name="privacy">
+        We place a high premium on your privacy. Our Privacy Statement describes how we collect, use, safeguard and share personal information and other data with
+        third parties. You are solely responsible for the security of your account information, which includes your username and password. You are responsible for
+        all activities that occur under your account, and you agree to tell us immediately if your account is accessed or used in an unauthorized manner. We are not
+        responsible or accountable for any harm or loss resulting from unauthorized access to or use of your account, including, but not limited to, phishing or other
+        similar attacks.
+    </string>
+    <string name="use">
+        a. When you use the Pet Care App, you agree:\n\n
+
+
+        -   To use the Pet Care App lawfully and solely for its intended purposes, including refraining
+        from modifying it or any element of it, creating any derivative version of it, reselling it or
+        any portion of it, or utilizing any data mining, data robots, or similar techniques.\n
+
+
+        -  Not to transmit viruses or other malicious programming to the Pet Care App or through it.\n
+
+
+        -   Not to use the Pet Care App or interact with other Pet Care App users for illegal activities.\n
+
+
+        -  Not to write reviews about Pet Care App that are not based on your own experience, are purposely false, or violate these Terms.\n
+
+
+        - Not to post pornographic, threatening, harassing, abusive, or defamatory content or materials,
+        or to post content or materials that contain nudity or graphic violence, incite violence, violate intellectual
+        property rights, or violate the law or the legal rights of others (for example, privacy rights).\n
+
+
+        -   Not to post "spam" or other commercial communications that are not authorized.\n
+
+
+        -   Not to share or authorize the use of your Pet Care App account by any other person.\n
+
+
+        -   Not to solicit another user\'s Pet Care App username and password.\n
+
+
+        -   Not to provide false information in your Pet Care App profile or registration.\n
+
+
+        -   Not to imitate another individual.\n
+
+
+        -   Not to obstruct our provision of the Pet Care App or the use of the Pet Care App by any other user.\n
+    </string>
+    <string name="rights">
+        Pet Care App is not responsible directly or indirectly for any loss or damage to
+        both the dog and its owner. We are putting in contact with the dog owner and the pet care provider.\n\n
+
+
+        Outside the above cases, we are not liable directly or indirectly for any damage or injury that
+        may be caused by a third party, the animal, owner or pet care provider.\n\n
+
+
+        Pet Care App always tries to advise the dog owner and pet care provider on how best to avoid risk and minimize possible harmful situations.\n\n
+
+
+        For Pet Owners, this means, among other things, that you will ensure that your pets are vaccinated,
+        licensed, identification-tagged and/or microchipped as required by local laws or regulations; that you have obtained
+        and will maintain any mandatory insurance policies. You acknowledge that Pet Care App is entitled to rely on these commitments
+        from you, is not responsible to ensure that all users have complied with applicable laws and regulations, and will not be liable for a user’s failure to do so.\n\n
+
+
+        As a Pet Owner, you hereby represent covenant and warrant to Pet Care App which provides you with
+        the services that: your pets are free from fleas, ticks, and other pests; you have divulged any material
+        information about your pets, including pre-existing medical conditions and other behavioral issues that may be
+        relevant to or impact a Pet Care Providers’s ability to provide the Services; you will have your pets fully vaccinated
+        and up to date on all forms of preventative medicine prior to receiving services from a Pet Care Providers and you will comply
+        with all laws and ordinances applicable to your activities conducted through the Services, including ensuring your pet is licensed
+        as required by local law. If you elect to use the Services, you agree to provide accurate information about yourself and your pet and
+        keep this information up-to-date, including any material information or medical data of your pet.\n\n
+
+
+        You acknowledge and agree that if you allow another person to access your account or if you request a
+        pet care service for a pet that is not your own, in each case in violation of these Terms, you and such other
+        person will be jointly and severally liable for all acts and omissions in connection with engaging the Services,
+        including all costs incurred or associated with such engagement.\n\n
+
+
+        You are fully responsible for the actions of your pet(s). You understand, acknowledge and agree that,
+        as between you and Us, you shall be liable for any and all claims, costs, proceedings, demands, losses, damages,
+        and expenses (including, without limitation, reasonable attorney’s fees and legal costs) of any kind or nature, arising
+        from or relating to, the behavior of your pet(s), including without limitation, claims by third parties (including Pet Care Providers s)
+        for damage, loss or injuries resulting from bites or attacks on such third parties by your pet(s). Incidents, injury, damage, or loss caused
+        by your pet may be governed by applicable laws. We will cooperate with appropriate law enforcement authorities to provide the requested information
+        regarding the situation. If you select to use a Pet Care Provider through the Services, you shall carry applicable liability insurance sufficient for
+        the pet care services you request, the risks associated with such services, and as mandated by law. Be sure to review your applicable policy(ies)
+        and address any questions regarding appropriate liability coverage with your insurance carrier and/or legal representatives prior to utilizing
+        a Pet Care Provider through the Services.\n\n
+
+
+        We do not provide a lockbox to our members. But if you have a lockbox and you prefer to use your own lock box or if you decide to
+        use a hidden key, you understand, acknowledge, and agree that we are not liable for any loss, claims or damages you may suffer as
+        a result of your use of the lockbox, including situations where the lockbox may be illegally accessed by a third party.\n\n
+
+
+        Pet Care Providers have the sole and absolute discretion to reject or refuse any Pet Care services that you may request if
+        they violate any law or regulation, are dangerous or unsafe, or otherwise violate these Terms or the Additional Terms. If
+        you choose to provide equipment to Pet Care Providers, Pet Care Providers have the right to refuse a pet care service that involves
+        a retractable leash, which can be dangerous for dogs and Pet Care Providers alike and may cause a safety hazard. You acknowledge and
+        agree that you will assume all liability in connection with providing a retractable leash. In addition, all pet care services that you
+        request should not be off-leash. Please note that for safety reasons, puppies that are 4 months or younger may be restricted from certain
+        types of services offered via the Pet Care App platform or be subject to limited service offerings tailored specifically to puppies.\n\n
+
+
+        Pet Owners who arrange for pet care services and fail to retrieve their pet within three (3) days after the service period
+        (or an earlier period required under applicable animal abandonment or cruelty laws) agree that Pet Care App (or the Pet Care Providers)
+        may, in its (or his or her) sole discretion, place the dog in foster care and/or notify animal control authorities. Pet Owner agrees to
+        reimburse Pet Care App and/or the Pet Care Providers for all costs and expenses associated with such actions.\n\n
+
+
+        If your Pet Care Provider reaches you with a request to authorize medical care for your pet and you refuse, you waive,
+        release and promise never to assert any claims or causes of action arising from failure to seek such care, whether or not now known,
+        against Pet Care App or its predecessors, successors or past or present subsidiaries, stockholders, directors, officers, employees, consultants,
+        attorneys, agents, assigns or the applicable Pet Care Providers with respect to any matter, including (without limitation) any claims of negligence,
+        emotional distress, fraud, breach of contract, or breach of the covenant of good faith and fair dealing. In the unlikely case that your pet needs immediate
+        medical attention or veterinary care, you hereby authorize your Pet Care Providers and Pet Care App to obtain and authorize the provision of veterinary
+        care for your pet if you cannot be reached to authorize care yourself in an emergency situation. Pet Owners are solely responsible for the costs of any
+        such medical treatment for your pets and, if you are a Pet Owner, you hereby authorize Pet Care App to charge any of your payment methods for such costs.\n\n
+
+
+        As a Pet Owner, you acknowledge that the Pet Care App is in the business of connecting Pet Owners and Pet Care Providers, and that said business is how Pet Care App earns its income. As a result, Pet Owner agrees that if Pet Owner solicits a Pet Care Provider to provide off-platform pet care services to Pet Owner whom Pet Owner first met and/or learned about through the Pet Care App platform, Pet Care App is entitled to charge both the Pet Owner and the Pet Care Provider a referral fee. This referral fee will be charged once per specific Pet Owner/Pet Care Providers services relationship utilized outside of the process provided for within the Pet Care App platform. Pet Owner’s referral fee will be 500£. Pet Owner will first be notified in writing of the Pet Owner’s obligation to pay the referral fee. Thereafter, Pet Owner hereby authorizes Pet Care App to charge any of your payment methods for the referral fee.
+    </string>
+    <string name="price">
+        The price mentioned for each service includes VAT and any other relevant taxes and is always expressed in Philippine Peso currency (₱).\n\n
+
+        Each service\'s price will be displayed on the mobile application and applied automatically during the booking process\'s final phase.
+    </string>
+    <string name="cancel">
+        General Terms for Cancellations. If you wish to cancel a Booking, you should use the mechanisms available through the Pet Care App Service to do so.\n\n
+
+        Cancellations by Pet Owner. Pet Owner can cancel a Booking prior to or during the service period specified in a Booking.\n\n
+
+        We are not responsible for any request out of our cancellation policy.\n\n
+
+
+        Force Majeure. The cancellation policies described herein may not apply in the event
+        of certain emergency situations beyond the control of Petcare Providers and/or Pet Owners that make it impossible or impractical
+        to perform agreed Bookings, such as evacuations resulting from earthquake, hurricane, wildfire, flood, war, riots or other similar disaster.
+        In such cases, Pet Care App may, in its reasonable discretion, issue exemptions to any violation under terms that vary from a Pet Care Provider’s
+        selected cancellation policy.\n\n
+
+
+        Payment Disputes; Payments will only be made directly to Pet Care Providers. The Pet Care App will not process any payments on behalf of Pet Care
+        Providers associated with a booking. Once these amounts have been disbursed, any further payment disputes are between the Pet Owner and Service Provider,
+        the Pet Care App has no obligation to mediate or facilitate any resolution. Further, Pet Care App has no responsibility or liability with respect to any
+        tips, bonuses, or other payments made outside of the Pet Care App Service.\n\n
+    </string>
+    <string name="feedback">
+        We encourage and accept your feedback, comments, and suggestions for improving the Pet Care App Platform ("Feedback"). You may
+        submit Feedback to us by email, the Pet Care App Platform\'s area, or other ways of communication. Any Feedback you provide will be
+        treated as non-confidential and non-proprietary by us. By sending Feedback to us, you hereby grant us a non-exclusive, global, royalty-free,
+        irrevocable, sublicensable, permanent right to use and disseminate those ideas and materials for any purpose, without payment to you.
+    </string>
+    <string name="warranty">
+       The information and materials found on the Pet Care App Service, including text, graphics, information, links or other items, are provided
+        "as is" and "as available." Reviews, profiles, advice, opinions, statements, offers, or other information or content made available through
+        the Pet Care App Service, but not directly by Pet Care App, are those of their respective authors, who are solely responsible for such content.
+        TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, Pet Care App DOES NOT: (1) WARRANT THE ACCURACY, ADEQUACY OR COMPLETENESS OF INFORMATION AND
+        MATERIALS ON THE Pet Care App SERVICE; (2) ADOPT, ENDORSE OR ACCEPT RESPONSIBILITY FOR THE ACCURACY OR RELIABILITY OF ANY OPINION, ADVICE, OR STATEMENT
+        MADE BY ANY PARTY OTHER THAN Pet Care App; (3) WARRANT THAT YOUR USE OF THE SERVICES WILL BE SECURE, FREE FROM COMPUTER VIRUSES, UNINTERRUPTED, ALWAYS
+        AVAILABLE, ERROR-FREE OR WILL MEET YOUR REQUIREMENTS, OR THAT ANY DEFECTS IN THE Pet Care App SERVICE WILL BE CORRECTED. TO THE EXTENT PERMITTED BY APPLICABLE
+        LAW, Pet Care App EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, WITH RESPECT TO THE Pet Care App SERVICE, AND SPECIFICALLY DISCLAIMS
+        ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ACCURACY. IN ADDITION AND WITHOUT LIMITING THE FOREGOING, WE
+        MAKE NO REPRESENTATION OR WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, REGARDING THE SUITABILITY OF ANY SERVICE PROVIDER THAT OFFERS PET CARE SERVICES VIA
+        THE Pet Care App SERVICE.
+    </string>
+    <string name="limitation">
+        16.1 Exclusion of Certain Types of Damages. To the maximum extent permitted under applicable law, in no event will Pet Care App be liable to you for any indirect, special, incidental, or consequential damages, or for any business losses, or loss of profit, revenue, contracts, data, goodwill or other similar losses or expenses that arise out of or relate to the use of or inability to use the Pet Care App Service, including without limitation damages related to any information received from the Pet Care App Service, removal of your profile information or review (or other content) from the Pet Care App Service, any suspension or termination of your access to the Pet Care App Service, or any failure, error, omission, interruption, defect, delay in operation or transmission of the Pet Care App Service, even if we are aware of the possibility of any such damages, losses or expenses. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, SO THE ABOVE LIMITATION MAY NOT APPLY TO YOU.\n\n
+
+
+        16.2 Limit on Our Liability to You. EXCEPT WHERE PROHIBITED BY APPLICABLE LAW, IN NO EVENT WILL Pet Care App’s AGGREGATE LIABILITY TO YOU OR ANY THIRD PARTY IN ANY MATTER ARISING FROM OR RELATING TO THE Pet Care App SERVICE OR THESE TERMS EXCEED THE AMOUNTS PAID BY YOU TO Pet Care App (SPECIFICALLY EXCLUDING AMOUNTS PAID TO SERVICE PROVIDERS) DURING THE TWELVE (12) MONTHS PRECEDING THE EVENT THAT GAVE RISE TO LIABILITY OR, IF YOU HAVE NOT PAID Pet Care App FOR THE USE OF ANY SERVICES, THE AMOUNT OF 100.00 GBP. (Any financial obligations Pet Care App may have to its users in connection with user conduct are limited to the reimbursement obligations set forth in the Pet Care App Guarantee.)\n\n
+
+
+        16.3 No Liability for non- Pet Care App Actions. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL Pet Care App BE LIABLE FOR ANY DAMAGES WHATSOEVER, WHETHER DIRECT, INDIRECT, GENERAL, SPECIAL, COMPENSATORY, AND/OR CONSEQUENTIAL, ARISING OUT OF OR RELATING TO THE CONDUCT OF YOU OR ANYONE ELSE IN CONNECTION WITH THE Pet Care App SERVICE, INCLUDING WITHOUT LIMITATION, PROPERTY DAMAGE, THEFT, BODILY INJURY, DEATH, EMOTIONAL DISTRESS, AND/OR ANY OTHER DAMAGES RESULTING FROM RELIANCE ON INFORMATION OR CONTENT POSTED ON OR TRANSMITTED THROUGH THE Pet Care App SERVICE, OR FOR ANY INTERACTIONS WITH OTHER USERS OF THE Pet Care App SERVICE, WHETHER ONLINE OR OFFLINE. THIS INCLUDES ANY CLAIMS, LOSSES OR DAMAGES ARISING FROM THE CONDUCT OF USERS WHO ATTEMPT TO DEFRAUD OR HARM YOU.\n\n
+
+
+        IF YOU HAVE A DISPUTE WITH A SERVICE PROVIDER OR PET OWNER, YOU AGREE TO RELEASE Pet Care App FROM ALL CLAIMS, DEMANDS AND DAMAGES OF EVERY NATURE, KNOWN AND UNKNOWN, ARISING OUT OF OR IN ANY WAY CONNECTED WITH SUCH DISPUTES, EXCEPT AS SPECIFICALLY SET FORTH IN THE Pet Care App GUARANTEE. IN NO EVENT WILL Pet Care App BE LIABLE FOR DIRECT OR INDIRECT CONSEQUENCES OF A PET OWNER OR SERVICE PROVIDER FAILING TO COMPLY WITH APPLICABLE LAWS AND REGULATIONS.\n\n
     </string>
 
 

@@ -17,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
         <activity
+            android:name=".PasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileSettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Main_Business_Activity"
             android:exported="false" />
         <activity

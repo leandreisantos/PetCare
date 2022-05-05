@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:padding="10dp"
+    tools:context=".ContactActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:id="@+id/cl_message">
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/email_icon"
+                    android:backgroundTint="@color/white"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_message"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:cardBackgroundColor="@color/green2"
+                    app:layout_constraintTop_toTopOf="@id/tv_email"
+                    app:layout_constraintRight_toRightOf="@id/tv_email"
+                    app:cardCornerRadius="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:gravity="center"
+                        android:textColor="@color/white"/>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/cl_notif"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/cl_message">
+
+                <TextView
+                    android:id="@+id/tv_notifi"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@drawable/notifi_icon"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_notif"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:cardBackgroundColor="@color/green2"
+                    app:layout_constraintTop_toTopOf="@id/tv_notifi"
+                    app:layout_constraintRight_toRightOf="@id/tv_notifi"
+                    app:cardCornerRadius="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="0"
+                        android:gravity="center"
+                        android:textColor="@color/white"/>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/logo_home"
+        android:layout_width="165dp"
+        android:layout_height="35dp"
+        android:background="@drawable/logohome"
+        app:layout_constraintTop_toBottomOf="@id/cl1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/lbl_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONTACT DETAILS"
+        android:drawableStart="@drawable/setting_icon"
+        android:gravity="center"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/logo_home"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+    <TableRow
+        android:id="@+id/tb"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@id/lbl_profile"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/name_owner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Mobile number"
+        app:layout_constraintTop_toBottomOf="@id/tb"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_mobile"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        app:layout_constraintLeft_toRightOf="@id/name_owner"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/name_owner"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@id/name_owner"
+        android:background="@drawable/custom_input"
+        android:layout_marginStart="10dp"/>
+
+    <TableRow
+        android:id="@+id/tb2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@id/et_mobile"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/businessname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Landline"
+        app:layout_constraintTop_toBottomOf="@id/tb2"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_businessname"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="@id/et_mobile"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/businessname"
+        app:layout_constraintBottom_toBottomOf="@id/businessname"
+        android:background="@drawable/custom_input" />
+
+    <TableRow
+        android:id="@+id/tb3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@id/et_businessname"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/website"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="Website Address"
+        app:layout_constraintTop_toBottomOf="@id/tb3"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <EditText
+        android:id="@+id/et_web"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="@id/et_mobile"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/website"
+        app:layout_constraintBottom_toBottomOf="@id/website"
+        android:background="@drawable/custom_input" />
+
+    <TableRow
+        android:id="@+id/tb4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@id/et_web"
+        android:layout_marginTop="10dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="#F292A7"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="SAVE"
+            android:textColor="@color/white" />
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

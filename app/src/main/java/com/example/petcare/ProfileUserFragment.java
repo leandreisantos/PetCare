@@ -18,6 +18,7 @@ public class ProfileUserFragment extends Fragment {
 
     TextView logout;
     FirebaseAuth mAuth;
+    TextView profile,contact,password;
 
     @Nullable
     @Override
@@ -33,9 +34,25 @@ public class ProfileUserFragment extends Fragment {
 
 
         logout = getActivity().findViewById(R.id.logout);
+        profile = getActivity().findViewById(R.id.profile);
+        contact = getActivity().findViewById(R.id.contact);
+        password = getActivity().findViewById(R.id.password);
 
 
         logout.setOnClickListener(view -> showlogout());
+
+        profile.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(),ProfileSettingsActivity.class);
+            startActivity(intent);
+        });
+        contact.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(),ContactActivity.class);
+            startActivity(intent);
+        });
+        password.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(),PasswordActivity.class);
+            startActivity(intent);
+        });
 
     }
 

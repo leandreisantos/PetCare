@@ -74,6 +74,19 @@ public class AllServicesHolder extends RecyclerView.ViewHolder{
         }else if(services.equals("Eye and Ear Clean")){
             iconholder.setBackgroundResource(R.drawable.ic_nailtrim_icon);
             bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }else if(services.equals("Bathing")){
+            iconholder.setBackgroundResource(R.drawable.ic_bathing_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }else if(services.equals("Full Groom")){
+            iconholder.setBackgroundResource(R.drawable.ic_full_grooming_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }else if(services.equals("Teeth Brushing")){
+            iconholder.setBackgroundResource(R.drawable.ic_teeth_brushing_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }
+        else if(services.equals("Anal Gland Expression")){
+            iconholder.setBackgroundResource(R.drawable.ic_anal_expres_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
         }
         else{
             iconholder.setBackgroundResource(R.drawable.ic_vaccine_icon);
@@ -106,6 +119,19 @@ public class AllServicesHolder extends RecyclerView.ViewHolder{
             bg.setBackgroundColor(Color.parseColor("#eda2b2"));
         }else if(services.equals("Eye and Ear Clean")){
             iconholder.setBackgroundResource(R.drawable.ic_nailtrim_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }else if(services.equals("Bathing")){
+            iconholder.setBackgroundResource(R.drawable.ic_bathing_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }else if(services.equals("Full Groom")){
+            iconholder.setBackgroundResource(R.drawable.ic_full_grooming_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }else if(services.equals("Teeth Brushing")){
+            iconholder.setBackgroundResource(R.drawable.ic_teeth_brushing_icon);
+            bg.setBackgroundColor(Color.parseColor("#eda2b2"));
+        }
+        else if(services.equals("Anal Gland Expression")){
+            iconholder.setBackgroundResource(R.drawable.ic_anal_expres_icon);
             bg.setBackgroundColor(Color.parseColor("#eda2b2"));
         }
         else{

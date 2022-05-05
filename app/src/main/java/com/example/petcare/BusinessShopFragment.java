@@ -33,11 +33,16 @@ public class BusinessShopFragment extends Fragment {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String currentUserId = user.getUid();
 
+    LinearLayoutManager linearLayoutManager;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.business_shop_fragment,container,false);
     }
+
+
 
 
     @Override
@@ -50,6 +55,10 @@ public class BusinessShopFragment extends Fragment {
         recyclerView = getActivity().findViewById(R.id.rv);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+
 
         addserv.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(),AddServicesActivity.class);
@@ -73,8 +82,8 @@ public class BusinessShopFragment extends Fragment {
 
                         holder.setService(getActivity(),model.getId(),model.getOwenerid(),model.getServices(),model.getDesc(),
                                 model.getMin(),model.getCapacity(),model.getAmount(),model.getDate(),model.getTime(),model.getTimeslotid());
-                        
-                        
+
+
                         holder.viewall.setOnClickListener(v -> {
 
                         });

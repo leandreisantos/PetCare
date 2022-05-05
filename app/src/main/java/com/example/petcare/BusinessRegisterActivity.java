@@ -20,6 +20,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -59,6 +60,7 @@ public class BusinessRegisterActivity extends AppCompatActivity {
     private static final int PICK_IMAGE=1;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String currentUserId = user.getUid();
+    Boolean terms = false;
 
     FirebaseAuth mAuth;
 
@@ -91,6 +93,8 @@ public class BusinessRegisterActivity extends AppCompatActivity {
     AllUserMember member;
     AllBranchMember branchMember;
 
+    ProgressBar pb;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +117,7 @@ public class BusinessRegisterActivity extends AppCompatActivity {
 
 
         iv_picholder = findViewById(R.id.cv1);
+        pb = findViewById(R.id.pb_l);
         iv = findViewById(R.id.iv_pic);
         iconpic = findViewById(R.id.icon);
         cv_submit = findViewById(R.id.cv_submit);
@@ -549,138 +554,7 @@ public class BusinessRegisterActivity extends AppCompatActivity {
                 Toast.makeText(BusinessRegisterActivity.this, "Please select day", Toast.LENGTH_SHORT).show();
             }else {
                 if((numselecyday*2)==numselectime){
-                    final StorageReference reference = storageReference.child(System.currentTimeMillis()+"."+getFileExt(imageUridp));
-                    uploadTask = reference.putFile(imageUridp);
-                    Task<Uri> urlTask = uploadTask.continueWithTask((Task<UploadTask.TaskSnapshot> task3) -> {
-                        if(!task3.isSuccessful()){
-                            throw task3.getException();
-                        }
-                        return reference.getDownloadUrl();
-                    }).addOnCompleteListener(task3 -> {
-                        Uri downloadUri = task3.getResult();
-
-                        Map<String, String> profile = new HashMap<>();
-                        profile.put("name",tempbname);
-                        profile.put("mobile",tempmobile);
-                        profile.put("url",downloadUri.toString());
-                        profile.put("landline",templandline);
-                        profile.put("web",tempweb);
-                        profile.put("uid",currentUserId);
-                        profile.put("status","Bussiness");
-
-                        Calendar cdate = Calendar.getInstance();
-                        SimpleDateFormat currentdate = new SimpleDateFormat("dd-MMMM-yyy");
-                        final String savedate = currentdate.format(cdate.getTime());
-
-                        Calendar ctime = Calendar.getInstance();
-                        SimpleDateFormat currenttime =new SimpleDateFormat("HH-mm");
-                        final String savetime = currenttime.format(ctime.getTime());
-
-                        String id1 = databaseReference3.push().getKey();
-
-                        ownerMember.setUrl(downloadUri.toString());
-                        ownerMember.setName(tempbname);
-                        ownerMember.setMobile(tempmobile);
-                        ownerMember.setLandline(templandline);
-                        ownerMember.setEmail("");
-                        ownerMember.setWebsite(tempweb);
-                        ownerMember.setAdd(tempbranchadd);
-                        ownerMember.setIduser(currentUserId);
-                        ownerMember.setStatus("Business");
-                        ownerMember.setStatusshop(statuposition);
-                        ownerMember.setDate(savedate);
-                        ownerMember.setTime(savetime);
-                        ownerMember.setPass("");
-                        ownerMember.setIdbranch(id1);
-
-                        member.setUserid(currentUserId);
-
-                        branchMember.setId(id1);
-                        branchMember.setIdowner(currentUserId);
-                        branchMember.setName(tempbname);
-                        branchMember.setLocation(tempbranchadd);
-                        branchMember.setBusinessName(tempbname);
-                        if(sunclick == 1){
-                            branchMember.setSun("true");
-                            branchMember.setSunopen(sunOpenHour);
-                            branchMember.setSunclose(sunCloseHour);
-                        }
-                        else branchMember.setSun("false");
-
-                        if(monclick == 1){
-                            branchMember.setMon("true");
-                            branchMember.setMonopen(monOpenHour);
-                            branchMember.setMonclose(monCloseHour);
-                        }
-                        else branchMember.setMon("false");
-
-                        if(tueclick == 1) {
-                            branchMember.setTues("true");
-                            branchMember.setTuesopen(tuesOpenHour);
-                            branchMember.setTuesclose(tuesClosehour);
-                        }
-                        else branchMember.setTues("false");
-
-                        if(wedclick == 1) {
-                            branchMember.setWed("true");
-                            branchMember.setWedopen(wedOpenHour);
-                            branchMember.setWedclose(wedCloseHour);
-                        }
-                        else branchMember.setWed("false");
-
-                        if(thuclick == 1) {
-                            branchMember.setThurs("true");
-                            branchMember.setThursopen(thurOpenHour);
-                            branchMember.setThursclose(thurCloseHour);
-                        }
-                        else branchMember.setThurs("false");
-
-                        if(friclick == 1){
-                            branchMember.setFri("true");
-                            branchMember.setFriopen(friOpenHour);
-                            branchMember.setFriclose(friCloseHour);
-                        }
-                        else branchMember.setFri("false");
-
-                        if(satclick == 1) {
-                            branchMember.setSat("true");
-                            branchMember.setSatopen(satOpenHour);
-                            branchMember.setSatclose(satCloseHour);
-                        }
-                        else branchMember.setSat("false");
-
-
-                        databaseReference2.child(currentUserId).setValue(ownerMember);
-                        databaseReference.child(currentUserId).setValue(member);
-                        databaseReference3.child(id1).setValue(branchMember);
-
-                        if(statuposition.equals("vet")){
-                            databaseReference4 = database.getReference("All Business users vet");
-                            databaseReference4.child(currentUserId).setValue(ownerMember);
-                        }
-                        else if(statuposition.equals("groom")){
-                            databaseReference4 = database.getReference("All Business users groom");
-                            databaseReference4.child(currentUserId).setValue(ownerMember);
-                        }
-                        else if(statuposition.equals("both")){
-                            databaseReference4 = database.getReference("All Business users groom");
-                            databaseReference4.child(currentUserId).setValue(ownerMember);
-                            databaseReference4 = database.getReference("All Business users vet");
-                            databaseReference4.child(currentUserId).setValue(ownerMember);
-                        }
-
-                        documentReference.set(profile)
-                                .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(BusinessRegisterActivity.this, "Profile Created", Toast.LENGTH_SHORT).show();
-
-                                    Handler handler = new Handler();
-                                    handler.postDelayed(() -> {
-                                        Intent intent = new Intent(BusinessRegisterActivity.this,MainActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    },2000);
-                                });
-                    });
+                    showterms();
                 }else{
                     Toast.makeText(this, "Please fill up all selected time", Toast.LENGTH_SHORT).show();
                 }
@@ -689,6 +563,178 @@ public class BusinessRegisterActivity extends AppCompatActivity {
         }else{
             Toast.makeText(BusinessRegisterActivity.this, "Please fill up requirements", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+
+    private void showterms() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.terms_condition_layout,null);
+        CheckBox cb = view.findViewById(R.id.cb_agree);
+        TextView create = view.findViewById(R.id.tv_create);
+
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .create();
+        alertDialog.show();
+
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(cb.isChecked()){
+                   finalsubmit();
+                   alertDialog.dismiss();
+                }else{
+                    Toast.makeText(BusinessRegisterActivity.this, "Please agree first to the terms and condtions", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void finalsubmit() {
+        cv_submit.setVisibility(View.INVISIBLE);
+        pb.setVisibility(View.VISIBLE);
+        String tempbname = businessnameholder.getText().toString();
+        String tempmobile = mobileholder.getText().toString();
+        String tempweb =websiteholder.getText().toString();
+        String tempbranchadd = branchaddholder.getText().toString();
+        String tempopen = open.getText().toString();
+        String tempclose = close.getText().toString();
+        String templandline = landlineholder.getText().toString();
+
+        final StorageReference reference = storageReference.child(System.currentTimeMillis()+"."+getFileExt(imageUridp));
+        uploadTask = reference.putFile(imageUridp);
+        Task<Uri> urlTask = uploadTask.continueWithTask((Task<UploadTask.TaskSnapshot> task3) -> {
+            if(!task3.isSuccessful()){
+                throw task3.getException();
+            }
+            return reference.getDownloadUrl();
+        }).addOnCompleteListener(task3 -> {
+            Uri downloadUri = task3.getResult();
+
+            Map<String, String> profile = new HashMap<>();
+            profile.put("name",tempbname);
+            profile.put("mobile",tempmobile);
+            profile.put("url",downloadUri.toString());
+            profile.put("landline",templandline);
+            profile.put("web",tempweb);
+            profile.put("uid",currentUserId);
+            profile.put("status","Bussiness");
+
+            Calendar cdate = Calendar.getInstance();
+            SimpleDateFormat currentdate = new SimpleDateFormat("dd-MMMM-yyy");
+            final String savedate = currentdate.format(cdate.getTime());
+
+            Calendar ctime = Calendar.getInstance();
+            SimpleDateFormat currenttime =new SimpleDateFormat("HH-mm");
+            final String savetime = currenttime.format(ctime.getTime());
+
+            String id1 = databaseReference3.push().getKey();
+
+            ownerMember.setUrl(downloadUri.toString());
+            ownerMember.setName(tempbname);
+            ownerMember.setMobile(tempmobile);
+            ownerMember.setLandline(templandline);
+            ownerMember.setEmail("");
+            ownerMember.setWebsite(tempweb);
+            ownerMember.setAdd(tempbranchadd);
+            ownerMember.setIduser(currentUserId);
+            ownerMember.setStatus("Business");
+            ownerMember.setStatusshop(statuposition);
+            ownerMember.setDate(savedate);
+            ownerMember.setTime(savetime);
+            ownerMember.setPass("");
+            ownerMember.setIdbranch(id1);
+
+            member.setUserid(currentUserId);
+
+            branchMember.setId(id1);
+            branchMember.setIdowner(currentUserId);
+            branchMember.setName(tempbname);
+            branchMember.setLocation(tempbranchadd);
+            branchMember.setBusinessName(tempbname);
+            if(sunclick == 1){
+                branchMember.setSun("true");
+                branchMember.setSunopen(sunOpenHour);
+                branchMember.setSunclose(sunCloseHour);
+            }
+            else branchMember.setSun("false");
+
+            if(monclick == 1){
+                branchMember.setMon("true");
+                branchMember.setMonopen(monOpenHour);
+                branchMember.setMonclose(monCloseHour);
+            }
+            else branchMember.setMon("false");
+
+            if(tueclick == 1) {
+                branchMember.setTues("true");
+                branchMember.setTuesopen(tuesOpenHour);
+                branchMember.setTuesclose(tuesClosehour);
+            }
+            else branchMember.setTues("false");
+
+            if(wedclick == 1) {
+                branchMember.setWed("true");
+                branchMember.setWedopen(wedOpenHour);
+                branchMember.setWedclose(wedCloseHour);
+            }
+            else branchMember.setWed("false");
+
+            if(thuclick == 1) {
+                branchMember.setThurs("true");
+                branchMember.setThursopen(thurOpenHour);
+                branchMember.setThursclose(thurCloseHour);
+            }
+            else branchMember.setThurs("false");
+
+            if(friclick == 1){
+                branchMember.setFri("true");
+                branchMember.setFriopen(friOpenHour);
+                branchMember.setFriclose(friCloseHour);
+            }
+            else branchMember.setFri("false");
+
+            if(satclick == 1) {
+                branchMember.setSat("true");
+                branchMember.setSatopen(satOpenHour);
+                branchMember.setSatclose(satCloseHour);
+            }
+            else branchMember.setSat("false");
+
+
+            databaseReference2.child(currentUserId).setValue(ownerMember);
+            databaseReference.child(currentUserId).setValue(member);
+            databaseReference3.child(id1).setValue(branchMember);
+
+            if(statuposition.equals("vet")){
+                databaseReference4 = database.getReference("All Business users vet");
+                databaseReference4.child(currentUserId).setValue(ownerMember);
+            }
+            else if(statuposition.equals("groom")){
+                databaseReference4 = database.getReference("All Business users groom");
+                databaseReference4.child(currentUserId).setValue(ownerMember);
+            }
+            else if(statuposition.equals("both")){
+                databaseReference4 = database.getReference("All Business users groom");
+                databaseReference4.child(currentUserId).setValue(ownerMember);
+                databaseReference4 = database.getReference("All Business users vet");
+                databaseReference4.child(currentUserId).setValue(ownerMember);
+            }
+
+            documentReference.set(profile)
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(BusinessRegisterActivity.this, "Profile Created", Toast.LENGTH_SHORT).show();
+
+                        Handler handler = new Handler();
+                        handler.postDelayed(() -> {
+                            Intent intent = new Intent(BusinessRegisterActivity.this,MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        },2000);
+                    });
+        });
     }
 
     private void chooseImage() {

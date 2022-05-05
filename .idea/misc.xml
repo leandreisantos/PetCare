@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PetCare/app/src/main/res/drawable/ic_nailtrim_icon.xml" value="0.2345" />
+        <entry key="..\:/PetCare/app/src/main/res/drawable/setting_icon.xml" value="0.3235" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/activity_add_services.xml" value="0.22" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/activity_business_register.xml" value="0.2" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/activity_contact.xml" value="0.371875" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/activity_login.xml" value="0.371875" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/activity_main_customer.xml" value="0.21388888888888888" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/activity_password.xml" value="0.371875" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/activity_profile_settings.xml" value="0.371875" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/activity_request_appointment.xml" value="0.371875" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/activity_terms_and_condition.xml" value="0.371875" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/business_home_fragment.xml" value="0.371875" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/business_shop_fragment.xml" value="0.371875" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/home_fragment_layout.xml" value="0.30833333333333335" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/profiile_user_fragment.xml" value="0.371875" />
+        <entry key="..\:/PetCare/app/src/main/res/layout/terms_condition_layout.xml" value="0.25" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/drawable/contact_icon.xml" value="0.3425" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/drawable/edit_icon.xml" value="0.3425" />
         <entry key="..\:/Users/Dominic Dionisio/Desktop/petcareproject/PetCare/app/src/main/res/drawable/gradient_background.xml" value="0.308" />
@@ -64,8 +80,6 @@
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/custom_btn_bg_terms.xml" value="0.198" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/gradient_background2.xml" value="0.16" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/gradient_background_pet.xml" value="0.16" />
-        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/home_icon.xml" value="0.16" />
-        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/ic_home_icon_customer.xml" value="0.16" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/more_icon.xml" value="0.16" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/drawable/star_icon.xml" value="0.16" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_business_message_activty.xml" value="0.209375" />
@@ -75,9 +89,6 @@
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_date_appointment.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_grooming.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_login.xml" value="0.209375" />
-        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_main.xml" value="0.209375" />
-        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_main_business.xml" value="0.209375" />
-        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_main_customer.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_register.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_show_profile.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/activity_summary_appointment.xml" value="0.209375" />
@@ -100,10 +111,7 @@
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/terms_condition_layout.xml" value="0.25" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/timeitem_layout.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/timeslot_appointment_item.xml" value="0.209375" />
-        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/vet_item.xml" value="0.209375" />
         <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/layout/walkinsched_item.xml" value="0.209375" />
-        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/menu/bottom_menu.xml" value="0.209375" />
-        <entry key="..\:/Users/Leandrei Santos/AndroidStudioProjects/PetCare/app/src/main/res/menu/bottom_menu_customer.xml" value="0.209375" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable-v24/custom_input.xml" value="0.1" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable/add_icon.xml" value="0.159" />
         <entry key="..\:/Users/leandreisantos/Desktop/project/PetCare/app/src/main/res/drawable/addpicture_icon.xml" value="0.132" />

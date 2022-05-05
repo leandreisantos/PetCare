@@ -24,8 +24,11 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -37,6 +40,7 @@ public class AddServicesActivity extends AppCompatActivity {
     String finalservices;
     TextView addholder,minusholder,capholder;
     TextView open,close;
+    TextView back;
     String houropen,hourclose;
     EditText desc,min,amount;
     int hour,minute;
@@ -68,6 +72,7 @@ public class AddServicesActivity extends AppCompatActivity {
         servmember = new AllServicesMember();
         databaseReference = database.getReference("All timeslot").child(currentUserId);
         databaseReference2 = database.getReference("All services").child(currentUserId);
+        databaseReference3= database.getReference("All Business users").child(currentUserId);
 
         addservices = findViewById(R.id.cv1);
         serviceslbl = findViewById(R.id.lbl_serv);
@@ -79,25 +84,17 @@ public class AddServicesActivity extends AppCompatActivity {
         desc = findViewById(R.id.et_desc);
         min = findViewById(R.id.et_min);
         amount = findViewById(R.id.et_amount);
+        back = findViewById(R.id.back);
 
         recyclerView = findViewById(R.id.rv);
-        recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        addservices.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showServices();
-            }
-        });
+        addservices.setOnClickListener(v -> showServices());
 
-        addtime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showTimeSlot();
-            }
-        });
+        addtime.setOnClickListener(v -> showTimeSlot());
+
+        back.setOnClickListener(view -> onBackPressed());
 
         addholder.setOnClickListener(v -> {
             capacity ++ ;
@@ -110,12 +107,7 @@ public class AddServicesActivity extends AppCompatActivity {
             }
         });
 
-        done.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                submit();
-            }
-        });
+        done.setOnClickListener(v -> submit());
 
     }
 
@@ -152,68 +144,62 @@ public class AddServicesActivity extends AppCompatActivity {
             timePickerDialog.updateTime(hour,minute);
             timePickerDialog.show();
         });
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TimePickerDialog timePickerDialog = new TimePickerDialog(
-                        AddServicesActivity.this,R.style.TimePickerTheme,
-                        (TimePicker view1, int hourOfDay, int minute) -> {
+        close.setOnClickListener(v -> {
+            TimePickerDialog timePickerDialog = new TimePickerDialog(
+                    AddServicesActivity.this,R.style.TimePickerTheme,
+                    (TimePicker view1, int hourOfDay, int minute) -> {
 
-                            hour = hourOfDay;
-                            minute = minute;
-                            Calendar calendar = Calendar.getInstance();
-                            calendar.set(0,0,0,hour,minute);
+                        hour = hourOfDay;
+                        minute = minute;
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.set(0,0,0,hour,minute);
 
-                            close.setText(DateFormat.format("hh:mm aa",calendar));
-                            hourclose = DateFormat.format("HH:mm",calendar).toString();
+                        close.setText(DateFormat.format("hh:mm aa",calendar));
+                        hourclose = DateFormat.format("HH:mm",calendar).toString();
 //                        stime.setText(Integer.toString(hourOfDay)+Integer.toString(minute));
 
-                        },12,0,false
-                );
+                    },12,0,false
+            );
 
-                timePickerDialog.updateTime(hour,minute);
-                timePickerDialog.show();
-            }
+            timePickerDialog.updateTime(hour,minute);
+            timePickerDialog.show();
         });
 
-        addtime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!TextUtils.isEmpty(hourclose)&&!TextUtils.isEmpty(houropen)){
-                    Calendar ctime = Calendar.getInstance();
-                    SimpleDateFormat currenttime =new SimpleDateFormat("HH-mm-ss");
-                    final String savetime = currenttime.format(ctime.getTime());
+        addtime.setOnClickListener(v -> {
+            if(!TextUtils.isEmpty(hourclose)&&!TextUtils.isEmpty(houropen)){
+                Calendar ctime = Calendar.getInstance();
+                SimpleDateFormat currenttime =new SimpleDateFormat("HH-mm-ss");
+                final String savetime = currenttime.format(ctime.getTime());
 
-                    if(newvheck){
-                        databaseReference = database.getReference("All timeslot").child(currentUserId).child(id1);
-                    }else{
-                        id1 = databaseReference.push().getKey();
-                    }
-
-                    timemember.setId(id1);
-                    timemember.setOpen(houropen);
-                    timemember.setClose(hourclose);
-                    timemember.setAvail("true");
-                    timemember.setTime(savetime);
-
-                    if(newvheck){
-                        databaseReference.child(id1+savetime).setValue(timemember);
-                    }else{
-                        databaseReference.child(id1).child(id1+savetime).setValue(timemember);
-                        databaseReference = database.getReference("All timeslot").child(currentUserId).child(id1);
-                        newvheck = true;
-//                        result.setVisibility(View.VISIBLE);
-                    }
-                    Toast.makeText(AddServicesActivity.this, "Time Added", Toast.LENGTH_SHORT).show();
-                    alertDialog.dismiss();
-                    showRec();
-//                    databaseReference.child(id1).setValue(timemember);
-                    countex ++;
-
-
+                if(newvheck){
+                    databaseReference = database.getReference("All timeslot").child(currentUserId).child(id1);
                 }else{
-                    Toast.makeText(AddServicesActivity.this, "Please select time", Toast.LENGTH_SHORT).show();
+                    id1 = databaseReference.push().getKey();
                 }
+
+                timemember.setId(id1);
+                timemember.setOpen(houropen);
+                timemember.setClose(hourclose);
+                timemember.setAvail("true");
+                timemember.setTime(savetime);
+
+                if(newvheck){
+                    databaseReference.child(id1+savetime).setValue(timemember);
+                }else{
+                    databaseReference.child(id1).child(id1+savetime).setValue(timemember);
+                    databaseReference = database.getReference("All timeslot").child(currentUserId).child(id1);
+                    newvheck = true;
+//                        result.setVisibility(View.VISIBLE);
+                }
+                Toast.makeText(AddServicesActivity.this, "Time Added", Toast.LENGTH_SHORT).show();
+                alertDialog.dismiss();
+                showRec();
+//                    databaseReference.child(id1).setValue(timemember);
+                countex ++;
+
+
+            }else{
+                Toast.makeText(AddServicesActivity.this, "Please select time", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -240,8 +226,6 @@ public class AddServicesActivity extends AppCompatActivity {
                             databaseReference.child(id+time).removeValue();
                             countex -- ;
                         });
-
-
 
 
                     }
@@ -314,6 +298,31 @@ public class AddServicesActivity extends AppCompatActivity {
         TextView bath =  view.findViewById(R.id.tv_bathing);
         TextView teeth =  view.findViewById(R.id.tv_teeth);
         TextView anal =  view.findViewById(R.id.tv_anal);
+
+        databaseReference3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String statusshop = snapshot.child("statusshop").getValue(String.class);
+
+                if(statusshop.equals("vet")){
+                    groom.setVisibility(View.GONE);
+                    nail.setVisibility(View.GONE);
+                    eye.setVisibility(View.GONE);
+                    bath.setVisibility(View.GONE);
+                    teeth.setVisibility(View.GONE);
+                    anal.setVisibility(View.GONE);
+                }else if(statusshop.equals("groom")){
+                    consul.setVisibility(View.GONE);
+                    vacc.setVisibility(View.GONE);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 

@@ -16,6 +16,7 @@ public class    AllOwnerUserMember {
     String time;
     String pass;
     String idbranch;
+    String nameowner;
 
     public String getUrl() {
         return url;
@@ -125,5 +126,12 @@ public class    AllOwnerUserMember {
 
     public void setIdbranch(String idbranch) {
         this.idbranch = idbranch;
+    }
+    public String getNameowner() {
+        return nameowner;
+    }
+
+    public void setNameowner(String nameowner) {
+        this.nameowner = nameowner;
     }
 }

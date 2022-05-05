@@ -1,10 +1,12 @@
 package com.example.petcare;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +40,8 @@ public class BusinessHomeFragment extends Fragment {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String currentUserId = user.getUid();
 
+    CardView check;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,6 +60,7 @@ public class BusinessHomeFragment extends Fragment {
         search = getActivity().findViewById(R.id.tv_search);
         add_walk = getActivity().findViewById(R.id.cv_add_walk);
         dateholder = getActivity().findViewById(R.id.datenow);
+        check = getActivity().findViewById(R.id.check_cv);
 
         recyclerView = getActivity().findViewById(R.id.rv);
         recyclerView.setHasFixedSize(false);
@@ -64,6 +69,13 @@ public class BusinessHomeFragment extends Fragment {
         notif.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(),BusinessNotificationActivity.class);
             startActivity(intent);
+        });
+
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                show();
+            }
         });
 
         message.setOnClickListener(v -> {
@@ -85,6 +97,32 @@ public class BusinessHomeFragment extends Fragment {
             }
         });
 
+
+
+    }
+
+    private void show() {
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        View view = inflater.inflate(R.layout.terms_condition_layout,null);
+        CheckBox cb = view.findViewById(R.id.cb_agree);
+        TextView create = view.findViewById(R.id.tv_create);
+
+
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
+                .setView(view)
+                .create();
+        alertDialog.show();
+
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(cb.isChecked()){
+                    Toast.makeText(getActivity(), "yes", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(), "no", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
     }

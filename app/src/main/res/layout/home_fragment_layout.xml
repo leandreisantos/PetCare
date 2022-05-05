@@ -5,241 +5,248 @@
     android:background="@drawable/gradient_background"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl1"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:id="@+id/cl_message">
-
-            <TextView
-                android:id="@+id/tv_email"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/email_icon"
-                android:backgroundTint="@color/white"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_message"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                app:cardBackgroundColor="@color/green2"
-                app:layout_constraintTop_toTopOf="@id/tv_email"
-                app:layout_constraintRight_toRightOf="@id/tv_email"
-                app:cardCornerRadius="10dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="0"
-                    android:gravity="center"
-                    android:textColor="@color/white"/>
-            </androidx.cardview.widget.CardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/cl_notif"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/cl_message">
-
-            <TextView
-                android:id="@+id/tv_notifi"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:background="@drawable/notifi_icon"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_notif"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                app:cardBackgroundColor="@color/green2"
-                app:layout_constraintTop_toTopOf="@id/tv_notifi"
-                app:layout_constraintRight_toRightOf="@id/tv_notifi"
-                app:cardCornerRadius="10dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="0"
-                    android:gravity="center"
-                    android:textColor="@color/white"/>
-            </androidx.cardview.widget.CardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/lbl_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PETCARE"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/cl1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/et_search"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/search_icon"
-        android:drawablePadding="10dp"
-        android:hint="Search for stores and services"
-        android:padding="10dp"
-        android:textColorHint="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lbl_home" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/et_search"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="20dp"
-        app:layout_constraintRight_toRightOf="parent">
-
-
-        <ImageView
-            android:id="@+id/iv_intro"
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/bghome"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_grooming"
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            app:layout_constraintTop_toBottomOf="@id/iv_intro"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="10dp"
-            app:cardCornerRadius="10dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/consul"
+                android:id="@+id/cl1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/consul_bg">
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
 
-                <TextView
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Consultation"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:id="@+id/cl_message">
+
+                    <TextView
+                        android:id="@+id/tv_email"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/email_icon"
+                        android:backgroundTint="@color/white"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_message"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:cardBackgroundColor="@color/green2"
+                        app:layout_constraintTop_toTopOf="@id/tv_email"
+                        app:layout_constraintRight_toRightOf="@id/tv_email"
+                        app:cardCornerRadius="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:gravity="center"
+                            android:textColor="@color/white"/>
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cl_notif"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/cl_message">
+
+                    <TextView
+                        android:id="@+id/tv_notifi"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:background="@drawable/notifi_icon"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_notif"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        app:cardBackgroundColor="@color/green2"
+                        app:layout_constraintTop_toTopOf="@id/tv_notifi"
+                        app:layout_constraintRight_toRightOf="@id/tv_notifi"
+                        app:cardCornerRadius="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="0"
+                            android:gravity="center"
+                            android:textColor="@color/white"/>
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/lbl_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/logohome"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/cl1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/et_search"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/search_icon"
+                android:drawablePadding="10dp"
+                android:hint="Search for stores and services"
+                android:padding="10dp"
+                android:textColorHint="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lbl_home" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/et_search"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp"
+                app:layout_constraintRight_toRightOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/iv_intro"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/bghome"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintRight_toRightOf="parent" />
 
 
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="@drawable/ic_consul_icon"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_grooming"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    app:layout_constraintTop_toBottomOf="@id/iv_intro"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="10dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/consul"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/consul_bg">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Consultation"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/ic_consul_icon"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_consul"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    app:layout_constraintTop_toBottomOf="@id/cv_grooming"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="10dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/grooming"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/groom_bg">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Grooming"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:layout_margin="10dp"/>
+
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/ic_groom_icon"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        </androidx.cardview.widget.CardView>
-
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_consul"
-            android:layout_width="350dp"
-            android:layout_height="200dp"
-            app:layout_constraintTop_toBottomOf="@id/cv_grooming"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="10dp"
-            app:cardCornerRadius="10dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/grooming"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/groom_bg">
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Grooming"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_margin="10dp"/>
-
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="@drawable/ic_groom_icon"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"/>
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-        </androidx.cardview.widget.CardView>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    
-
-
-
-
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
