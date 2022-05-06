@@ -14,9 +14,10 @@
 
 
         <TextView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/edit_icon"
+            android:id="@+id/tv_edit"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_edit_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
 

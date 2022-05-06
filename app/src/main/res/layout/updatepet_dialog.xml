@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/back_icon"
+            android:backgroundTint="@color/pink1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update your pet data"
+            android:textColor="@color/pink1"
+            android:textSize="25dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/back"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        app:layout_constraintTop_toBottomOf="@id/cl1"
+        android:layout_marginTop="20dp"
+        android:hint="Pet Name"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/et_breed"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        app:layout_constraintTop_toBottomOf="@id/et_name"
+        android:layout_marginTop="20dp"
+        android:hint="Breed"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
+
+    <EditText
+            android:id="@+id/et_weight"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        app:layout_constraintTop_toBottomOf="@id/et_breed"
+        android:layout_marginTop="20dp"
+        android:hint="Weight"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/et_age"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/custom_input"
+        app:layout_constraintTop_toBottomOf="@id/et_weight"
+        android:layout_marginTop="20dp"
+        android:hint="Age"
+        android:textColor="@color/black"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/lbl_h"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Health Status"
+        android:textColor="@color/pink1"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_age"
+        android:layout_marginTop="20dp"/>
+
+    <RadioGroup
+        android:id="@+id/rb_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lbl_h">
+
+        <RadioButton
+            android:id="@+id/rb_healthy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Healthy"
+            android:textColor="@color/grey"/>
+
+        <RadioButton
+            android:id="@+id/rb_unhealthy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unhealthy"
+            android:textColor="@color/grey"/>
+    </RadioGroup>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/pink1"
+        app:layout_constraintTop_toBottomOf="@id/rb_group"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:drawableEnd="@drawable/next_icon"
+            android:layout_gravity="center"/>
+
+            android:layout_gravity="center"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

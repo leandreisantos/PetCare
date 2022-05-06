@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -24,8 +25,12 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class PetFragment extends Fragment {
 
@@ -37,7 +42,7 @@ public class PetFragment extends Fragment {
 
     databaseReference dbr = new databaseReference();
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference,databaseReference2;
 
     AllPetMember petMember;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -164,7 +169,16 @@ public class PetFragment extends Fragment {
 
 
                         holder.setPet(getActivity(),model.getPetname(),model.getBreed(),model.getWeight(),model.getAge(),model.getStatus(),model.getId(),model.getOwnerid());
+                        String id = getItem(position).getId();
 
+                        holder.editholder.setOnClickListener(v -> showupdatedia(id));
+                        holder.swi.setOnClickListener(v -> {
+                           if(holder.swi.isChecked()){
+                               databaseReference.child(id).child("status").setValue("health");
+                           }else{
+                               databaseReference.child(id).child("status").setValue("unhealth");
+                           }
+                        });
                     }
 
                     @NonNull
@@ -183,6 +197,78 @@ public class PetFragment extends Fragment {
         recyclerView.setAdapter(firebaseRecyclerAdapter);
 
 
+
+    }
+
+    private void showupdatedia(String id) {
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        View view = inflater.inflate(R.layout.updatepet_dialog,null);
+
+
+        EditText name = view.findViewById(R.id.et_name);
+        EditText breed = view.findViewById(R.id.et_breed);
+        EditText weight = view.findViewById(R.id.et_weight);
+        EditText age = view.findViewById(R.id.et_age);
+        RadioButton health = view.findViewById(R.id.rb_healthy);
+        RadioButton unhealth = view.findViewById(R.id.rb_unhealthy);
+        CardView done = view.findViewById(R.id.cv);
+        TextView back = view.findViewById(R.id.back);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
+                .setView(view)
+                .create();
+        alertDialog.show();
+
+        back.setOnClickListener(v -> alertDialog.dismiss());
+
+        databaseReference.child(id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String nameholder = snapshot.child("petname").getValue(String.class);
+                String breedholder = snapshot.child("breed").getValue(String.class);
+                String weightholder = snapshot.child("weight").getValue(String.class);
+                String ageholder = snapshot.child("age").getValue(String.class);
+                String statusholder = snapshot.child("status").getValue(String.class);
+
+                name.setText(nameholder);
+                breed.setText(breedholder);
+                weight.setText(weightholder);
+                age.setText(ageholder);
+
+                if(statusholder.equals("health")){
+                    health.setChecked(true);
+                }else{
+                    unhealth.setChecked(true);
+                }
+
+
+                done.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(health.isChecked()){
+                            databaseReference.child(id).child("status").setValue("health");
+                        }else if(unhealth.isChecked()){
+                            databaseReference.child(id).child("status").setValue("unhealth");
+                        }
+                        databaseReference.child(id).child("petname").setValue(name.getText().toString());
+                        databaseReference.child(id).child("breed").setValue(breed.getText().toString());
+                        databaseReference.child(id).child("weight").setValue(weight.getText().toString());
+                        databaseReference.child(id).child("age").setValue(age.getText().toString());
+
+                        Toast.makeText(getActivity(), "pet updated", Toast.LENGTH_SHORT).show();
+
+                        alertDialog.dismiss();
+                    }
+                });
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 }

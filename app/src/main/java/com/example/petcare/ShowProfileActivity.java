@@ -3,6 +3,7 @@ package com.example.petcare;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,6 +39,8 @@ public class ShowProfileActivity extends AppCompatActivity {
 
     String id_post;
 
+    ConstraintLayout clmessage,clnotif;
+
     databaseReference dbr = new databaseReference();
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
     DatabaseReference databaseReference,databaseReference2;
@@ -66,6 +69,8 @@ public class ShowProfileActivity extends AppCompatActivity {
         addholder = findViewById(R.id.tv_add);
         backholder = findViewById(R.id.tv_back);
         message = findViewById(R.id.tv_message);
+        clmessage = findViewById(R.id.cl_message);
+        clnotif = findViewById(R.id.cl_notif);
         req = findViewById(R.id.cv_req);
         iv = findViewById(R.id.iv);
         recyclerView = findViewById(R.id.rv);
@@ -75,8 +80,15 @@ public class ShowProfileActivity extends AppCompatActivity {
         backholder.setOnClickListener(view -> onBackPressed());
 
 
+        clmessage.setOnClickListener(v -> {
+            Intent intent = new Intent(ShowProfileActivity.this,BusinessMessageActivty.class);
+            startActivity(intent);
+        });
 
-
+        clnotif.setOnClickListener(v -> {
+            Intent intent = new Intent(ShowProfileActivity.this,BusinessNotificationActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override

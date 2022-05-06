@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -29,6 +30,7 @@ public class AppoinmentPetActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     CardView cv;
+    TextView subtotalholder;
 
     databaseReference dbr = new databaseReference();
     FirebaseDatabase database = FirebaseDatabase.getInstance(dbr.keyDb());
@@ -61,42 +63,43 @@ public class AppoinmentPetActivity extends AppCompatActivity {
         databaseReference3= database.getReference("All selected pet").child(currentUserId);
         recyclerView = findViewById(R.id.rv);
         cv = findViewById(R.id.cv_next);
+        subtotalholder = findViewById(R.id.subtotal_tv);
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-
-        cv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(!mylist.isEmpty()){
-
-                    String id1 = databaseReference3.push().getKey();
+        subtotalholder.setText(subtotalbundle);
 
 
-                    for(int i=0;i<mylist.size();i++){
+
+        cv.setOnClickListener(view -> {
+
+            if(!mylist.isEmpty()){
+
+                String id1 = databaseReference3.push().getKey();
+
+
+                for(int i=0;i<mylist.size();i++){
 //                    Toast.makeText(this, mylist.get(i), Toast.LENGTH_SHORT).show();
-                        member.setId(mylist.get(i));
-                        databaseReference3.child(serviceidbundle).child(mylist.get(i)).setValue(member);
-                    }
-
-                    Intent intent = new Intent(AppoinmentPetActivity.this,DateAppointmentActivity.class);
-                    intent.putExtra("owner",ownerbundle);
-                    intent.putExtra("idservices",serviceidbundle);
-                    intent.putExtra("subtotal",subtotalbundle);
-                    intent.putExtra("petid",id1);
-                    intent.putExtra("branchid",bundleidbranch);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(AppoinmentPetActivity.this, "Select pet", Toast.LENGTH_SHORT).show();
+                    member.setId(mylist.get(i));
+                    databaseReference3.child(serviceidbundle).child(mylist.get(i)).setValue(member);
                 }
+
+                Intent intent = new Intent(AppoinmentPetActivity.this,DateAppointmentActivity.class);
+                intent.putExtra("owner",ownerbundle);
+                intent.putExtra("idservices",serviceidbundle);
+                intent.putExtra("subtotal",subtotalbundle);
+                intent.putExtra("petid",id1);
+                intent.putExtra("branchid",bundleidbranch);
+                startActivity(intent);
+            }else{
+                Toast.makeText(AppoinmentPetActivity.this, "Select pet", Toast.LENGTH_SHORT).show();
+            }
 
 
 //
 //                Intent intent = new Intent(AppoinmentPetActivity.this,DateAppointmentActivity.class);
 //                startActivity(intent);
-            }
         });
     }
 

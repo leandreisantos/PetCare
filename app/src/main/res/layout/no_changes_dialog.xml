@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="No changes can be made after confirmation.Cancellation of request may result to a violation.Do you still want to continue?"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+    </TextView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_yes"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintRight_toLeftOf="@id/cv_no"
+        app:cardBackgroundColor="#F0E3E6"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="YES"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_no"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="#F0E3E6"
+        app:layout_constraintTop_toBottomOf="@id/text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/cv_yes"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="NO"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,22 @@
 package com.example.petcare;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +37,7 @@ public class SummaryAppointmentActivity extends AppCompatActivity {
     String currentUserId = user.getUid();
 
     CardView set;
+    RecyclerView recyclerView;
 
     AppointmentMember member;
 
@@ -58,19 +67,34 @@ public class SummaryAppointmentActivity extends AppCompatActivity {
         databaseReference = database.getReference("All Appointment owner").child(owneridbundle);
         databaseReference2 = database.getReference("All Appointment customer").child(currentUserId);
         databaseReference3 = database.getReference("All Appointment customer and owner").child(currentUserId).child(owneridbundle);
+        databaseReference4= database.getReference("All selected services").child(currentUserId).child(serviceidbundle);
+
 
         petnameholder = findViewById(R.id.tv_for);
         paymentholder = findViewById(R.id.tv_total);
         schedholder = findViewById(R.id.tv_appoint);
         set = findViewById(R.id.cv_next);
 
-        set.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                submit();
-            }
-        });
+        recyclerView = findViewById(R.id.rv);
+        recyclerView.setHasFixedSize(false);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        set.setOnClickListener(v -> showdia());
+
+
+    }
+
+    private void showdia() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.no_changes_dialog,null);
+        CardView yes = view.findViewById(R.id.cv_yes);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .create();
+        alertDialog.show();
+
+        yes.setOnClickListener(v -> submit());
 
     }
 
@@ -96,8 +120,25 @@ public class SummaryAppointmentActivity extends AppCompatActivity {
         databaseReference3.child(id1).setValue(member);
 
 
-        Intent intent = new Intent(SummaryAppointmentActivity.this,MainActivity.class);
-        startActivity(intent);
+        showdiaok();
+
+    }
+
+    private void showdiaok() {
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.successful_dialog,null);
+        CardView yes = view.findViewById(R.id.ok);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setView(view)
+                .create();
+        alertDialog.show();
+
+        yes.setOnClickListener(v -> {
+            Intent intent = new Intent(SummaryAppointmentActivity.this,MainActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
@@ -106,6 +147,41 @@ public class SummaryAppointmentActivity extends AppCompatActivity {
 
         paymentholder.setText(subtotalbundle);
         schedholder.setText(monthbundle+"/"+daybundle+"/"+yearbundle+" "+opentimebundle+"-"+closeidbundle);
+
+        FirebaseRecyclerOptions<AllservicesSelectedMember> options =
+                new FirebaseRecyclerOptions.Builder<AllservicesSelectedMember>()
+                        .setQuery(databaseReference4,AllservicesSelectedMember.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<AllservicesSelectedMember, AllServicesHolder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<AllservicesSelectedMember, AllServicesHolder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull AllServicesHolder holder, int position, @NonNull AllservicesSelectedMember model) {
+
+
+                        holder.setSelectedServices(getApplication(),model.getId(),model.getIdowner());
+
+                        String  id = getItem(position).getId();
+
+
+                    }
+
+                    @NonNull
+                    @Override
+                    public AllServicesHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+                        View view = LayoutInflater.from(parent.getContext())
+                                .inflate(R.layout.service_appointment_item,parent,false);
+
+                        return new AllServicesHolder(view);
+                    }
+                };
+
+        firebaseRecyclerAdapter.startListening();
+
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+
+
 
     }
 }

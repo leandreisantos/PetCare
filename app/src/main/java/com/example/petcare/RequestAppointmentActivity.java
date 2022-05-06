@@ -48,6 +48,7 @@ public class RequestAppointmentActivity extends AppCompatActivity {
     ArrayList<String> mylist = new ArrayList<String>();
 
     AllservicesSelectedMember member;
+    String owner;
 
     int subtotal=0;
     @Override
@@ -88,6 +89,7 @@ public class RequestAppointmentActivity extends AppCompatActivity {
                 for(int i=0;i<mylist.size();i++){
 //                    Toast.makeText(this, mylist.get(i), Toast.LENGTH_SHORT).show();
                     member.setId(mylist.get(i));
+                    member.setIdowner(owner);
                     databaseReference3.child(id1).child(mylist.get(i)).setValue(member);
                 }
 
@@ -135,6 +137,7 @@ public class RequestAppointmentActivity extends AppCompatActivity {
 
                         String  id = getItem(position).getId();
                         String  amount = getItem(position).getAmount();
+                        owner = getItem(position).getOwenerid();
 
                         holder.cb.setOnClickListener(new View.OnClickListener() {
                             @Override

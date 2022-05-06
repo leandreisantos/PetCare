@@ -15,6 +15,7 @@ public class Petholder extends RecyclerView.ViewHolder {
     TextView nameholder,breedholder,ageholder,weightholder,genderholder;
     Switch swi;
     CheckBox cb;
+    TextView editholder;
 
 
     public Petholder(@NonNull View itemView) {
@@ -29,6 +30,7 @@ public class Petholder extends RecyclerView.ViewHolder {
         weightholder = itemView.findViewById(R.id.tv_weight);
         genderholder = itemView.findViewById(R.id.tv_gender);
         swi = itemView.findViewById(R.id.switch2);
+        editholder = itemView.findViewById(R.id.tv_edit);
 
 
         nameholder.setText(petname);

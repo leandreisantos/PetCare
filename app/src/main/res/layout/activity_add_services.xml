@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink2"
+    android:background="#F8D4D6"
     android:padding="10dp"
     tools:context=".AddServicesActivity">
 
